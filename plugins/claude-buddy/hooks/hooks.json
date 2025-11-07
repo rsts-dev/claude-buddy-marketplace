@@ -1,0 +1,169 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/file-guard.py",
+            "description": "Protect sensitive files from being written",
+            "enabled": true,
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/file-guard.py",
+            "description": "Protect sensitive files from being edited",
+            "enabled": true,
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/file-guard.py",
+            "description": "Protect sensitive files from being modified",
+            "enabled": true,
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/command-validator.py",
+            "description": "Validate and block dangerous bash commands",
+            "enabled": true,
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/auto-formatter.py",
+            "description": "Auto-format code files after writing",
+            "enabled": true,
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/auto-formatter.py",
+            "description": "Auto-format code files after editing",
+            "enabled": true,
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python hooks/auto-formatter.py",
+            "description": "Auto-format code files after multi-editing",
+            "enabled": true,
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Notification": [],
+    "Stop": [],
+    "SubagentStop": [],
+    "PreCompact": []
+  },
+  "config": {
+    "file_protection": {
+      "enabled": true,
+      "additional_patterns": [],
+      "whitelist_patterns": [],
+      "strict_mode": false
+    },
+    "command_validation": {
+      "enabled": true,
+      "block_dangerous": true,
+      "warn_performance": true,
+      "suggest_best_practices": true,
+      "additional_dangerous_patterns": [],
+      "whitelist_patterns": [],
+      "strict_mode": false
+    },
+    "auto_formatting": {
+      "enabled": true,
+      "extensions": [
+        ".py",
+        ".js",
+        ".ts",
+        ".tsx",
+        ".jsx",
+        ".json",
+        ".css",
+        ".scss",
+        ".md"
+      ],
+      "tools": {},
+      "exclude_patterns": [
+        "node_modules/",
+        ".git/",
+        "dist/",
+        "build/",
+        "__pycache__/",
+        ".venv/"
+      ],
+      "create_backup": false
+    },
+    "git": {
+      "auto_push": true,
+      "branch_protection": [
+        "main",
+        "master"
+      ],
+      "commit_validation": true,
+      "conventional_commits": true,
+      "sign_commits": false
+    },
+    "features": {
+      "auto_commit": true,
+      "safety_hooks": true,
+      "auto_formatting": true,
+      "commit_templates": "conventional",
+      "documentation_generation": true,
+      "code_review": true,
+      "personas": true
+    },
+    "logging": {
+      "enabled": true,
+      "level": "info",
+      "file_operations": true,
+      "command_executions": true,
+      "hook_activities": true
+    },
+    "notifications": {
+      "desktop_alerts": false,
+      "protection_events": true,
+      "formatting_results": false,
+      "commit_summaries": true
+    }
+  }
+}

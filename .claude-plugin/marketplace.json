@@ -1,0 +1,41 @@
+{
+  "name": "claude-buddy-marketplace",
+  "owner": {
+    "name": "Claude Buddy Contributors",
+    "email": "hello@claude-buddy.dev",
+    "url": "https://claude-buddy.dev"
+  },
+  "description": "Official marketplace for Claude Buddy - Enterprise-Ready AI Development Platform",
+  "homepage": "https://claude-buddy.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rsts-dev/claude-buddy-marketplace"
+  },
+  "plugins": [
+    {
+      "name": "claude-buddy",
+      "source": "./plugins/claude-buddy",
+      "description": "Enterprise-Ready AI Development Platform with 12 personas, workflow automation, and safety-first design",
+      "version": "4.0.0",
+      "author": {
+        "name": "Claude Buddy Contributors",
+        "url": "https://github.com/rsts-dev/claude-buddy"
+      },
+      "keywords": [
+        "personas",
+        "workflow",
+        "enterprise",
+        "mulesoft",
+        "jhipster",
+        "safety",
+        "automation",
+        "tdd",
+        "documentation",
+        "architecture"
+      ],
+      "requirements": {
+        "system": ["python>=3.8", "uv"]
+      }
+    }
+  ]
+}
