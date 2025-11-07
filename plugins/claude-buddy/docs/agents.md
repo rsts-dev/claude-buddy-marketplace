@@ -391,14 +391,12 @@ Invoke the spec-writer agent with the feature description.
 
 Agents can invoke other agents in workflow:
 
-```
-spec-writer → creates spec.md
-     ↓
-plan-writer → reads spec.md, creates plan.md
-     ↓
-tasks-writer → reads plan.md, creates tasks.md
-     ↓
-task-executor → reads tasks.md, implements feature
+```mermaid
+flowchart LR
+    A[spec-writer] -->|creates spec.md| B[plan-writer]
+    B -->|reads spec.md<br/>creates plan.md| C[tasks-writer]
+    C -->|reads plan.md<br/>creates tasks.md| D[task-executor]
+    D -->|reads tasks.md<br/>implements feature| E[Complete]
 ```
 
 ### Pattern 3: Conditional Invocation
