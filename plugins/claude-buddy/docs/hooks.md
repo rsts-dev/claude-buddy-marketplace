@@ -24,23 +24,26 @@ Hooks intercept tool calls at two key moments:
 
 ### Execution Flow
 
-```
-User/Agent requests tool call (Write, Edit, Bash, etc.)
-         ↓
-PreToolUse hooks execute (if configured)
-  ├─ Read tool_name and tool_input from stdin (JSON)
-  ├─ Validate against rules
-  ├─ Return decision: approve | block | warn
-  └─ If blocked: Tool call prevented, reason shown to user
-         ↓
-Tool executes (if approved)
-         ↓
-PostToolUse hooks execute (if configured)
-  ├─ Read tool_name, tool_input, and result from stdin (JSON)
-  ├─ Perform automation (formatting, logging, etc.)
-  └─ Return status
-         ↓
-Result returned to user/agent
+```mermaid
+flowchart TD
+    Request["User/Agent requests tool call<br/>Write, Edit, Bash, etc."]
+
+    Request --> PreHook["PreToolUse hooks execute<br/>if configured"]
+
+    PreHook --> PreActions["• Read tool_name and tool_input from stdin JSON<br/>• Validate against rules<br/>• Return decision: approve | block | warn"]
+
+    PreActions --> Decision{Decision}
+
+    Decision -->|Blocked| Blocked["Tool call prevented<br/>Reason shown to user"]
+    Decision -->|Approved| ToolExec["Tool executes"]
+
+    ToolExec --> PostHook["PostToolUse hooks execute<br/>if configured"]
+
+    PostHook --> PostActions["• Read tool_name, tool_input, and result from stdin JSON<br/>• Perform automation: formatting, logging, etc.<br/>• Return status"]
+
+    PostActions --> Result["Result returned to user/agent"]
+    Blocked --> End["End"]
+    Result --> End
 ```
 
 ### Hook Protocol
