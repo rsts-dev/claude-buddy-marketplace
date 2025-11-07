@@ -117,7 +117,6 @@ pip install uv
 ## Documentation
 
 - [Plugin README](plugins/claude-buddy/README.md) - Complete plugin documentation
-- [Testing Guide](plugins/claude-buddy/TESTING.md) - Local testing instructions
 - [Website](https://claude-buddy.dev) - Official documentation and guides
 
 ## Usage Example
