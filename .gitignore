@@ -22,3 +22,6 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# Local context and reference files
+_context/
