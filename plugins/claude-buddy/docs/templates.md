@@ -76,24 +76,27 @@ Each generator provides templates for all 3 project types:
 
 ### Detection Flow
 
-```
-User: /buddy:spec Create a user authentication API
+```mermaid
+flowchart TD
+    User["User: /buddy:spec Create a user authentication API"]
 
-Command: spec
-  ↓
-Check: directive/foundation.md exists?
-  ↓
-Read: **Foundation Type**: mulesoft
-  ↓
-Activate: mulesoft domain skill
-  ↓
-Activate: spec-generator skill
-  ↓
-Select: templates/mulesoft-spec.md
-  ↓
-Fill: Replace placeholders with API details
-  ↓
-Output: specs/20251107-user-auth-api/spec.md
+    User --> Cmd["Command: spec"]
+
+    Cmd --> Check{"Check: directive/foundation.md exists?"}
+
+    Check -->|Yes| Read["Read: **Foundation Type**: mulesoft"]
+
+    Read --> ActivateDomain["Activate: mulesoft domain skill"]
+
+    ActivateDomain --> ActivateGen["Activate: spec-generator skill"]
+
+    ActivateGen --> Select["Select: templates/mulesoft-spec.md"]
+
+    Select --> Fill["Fill: Replace placeholders with API details"]
+
+    Fill --> Output["Output: specs/20251107-user-auth-api/spec.md"]
+
+    Check -->|No| Error["Error: Run /buddy:foundation first"]
 ```
 
 ### Detection Logic
