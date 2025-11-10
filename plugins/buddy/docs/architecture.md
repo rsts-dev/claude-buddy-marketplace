@@ -265,19 +265,18 @@ Templates provide context to agents:
 ## File Structure
 
 ```
-plugins/claude-buddy/
+plugins/buddy/
 ├── .claude-plugin/
 │   └── plugin.json              # Plugin manifest
 ├── commands/
-│   └── buddy/
-│       ├── persona.md           # /buddy:persona command
-│       ├── foundation.md        # /buddy:foundation command
-│       ├── spec.md              # /buddy:spec command
-│       ├── plan.md              # /buddy:plan command
-│       ├── tasks.md             # /buddy:tasks command
-│       ├── implement.md         # /buddy:implement command
-│       ├── commit.md            # /buddy:commit command
-│       └── docs.md              # /buddy:docs command
+│   ├── persona.md               # /buddy:persona command
+│   ├── foundation.md            # /buddy:foundation command
+│   ├── spec.md                  # /buddy:spec command
+│   ├── plan.md                  # /buddy:plan command
+│   ├── tasks.md                 # /buddy:tasks command
+│   ├── implement.md             # /buddy:implement command
+│   ├── commit.md                # /buddy:commit command
+│   └── docs.md                  # /buddy:docs command
 ├── agents/
 │   ├── persona-dispatcher.md   # Persona selection agent
 │   ├── foundation.md           # Project setup agent

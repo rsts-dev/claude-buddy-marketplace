@@ -65,7 +65,7 @@ uv --version     # Should show uv version
 
 **2. Install the plugin:**
 ```bash
-/plugin install claude-buddy@claude-buddy-marketplace
+/plugin install buddy@claude-buddy-marketplace
 ```
 
 **3. Restart Claude Code**
@@ -282,7 +282,7 @@ authentication, and role-based access control
 1. Verify plugin is installed: `/plugin`
 2. Check marketplace is added: `/plugin marketplace list`
 3. Restart Claude Code
-4. Reinstall if needed: `/plugin uninstall claude-buddy@claude-buddy-marketplace` then `/plugin install claude-buddy@claude-buddy-marketplace`
+4. Reinstall if needed: `/plugin uninstall buddy@claude-buddy-marketplace` then `/plugin install buddy@claude-buddy-marketplace`
 
 ### Hook Execution Errors
 

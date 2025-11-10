@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "buddy",
-      "source": "./plugins/claude-buddy"
+      "source": "./plugins/buddy"
     }
   ]
 }

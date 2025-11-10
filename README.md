@@ -13,7 +13,7 @@ Official Claude Code plugin marketplace for Claude Buddy.
 ### Install Claude Buddy Plugin
 
 ```bash
-/plugin install claude-buddy@claude-buddy-marketplace
+/plugin install buddy@claude-buddy-marketplace
 ```
 
 ### Restart Claude Code
@@ -106,7 +106,7 @@ pip install uv
 /plugin marketplace add rsts-dev/claude-buddy-marketplace
 
 # 2. Install plugin
-/plugin install claude-buddy@claude-buddy-marketplace
+/plugin install buddy@claude-buddy-marketplace
 
 # 3. Restart Claude Code
 
@@ -116,7 +116,7 @@ pip install uv
 
 ## Documentation
 
-- [Plugin README](plugins/claude-buddy/README.md) - Complete plugin documentation
+- [Plugin README](plugins/buddy/README.md) - Complete plugin documentation
 - [Website](https://claude-buddy.dev) - Official documentation and guides
 
 ## Usage Example
