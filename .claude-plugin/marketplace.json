@@ -7,10 +7,7 @@
   },
   "description": "Official marketplace for Claude Buddy - Enterprise-Ready AI Development Platform",
   "homepage": "https://claude-buddy.dev",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rsts-dev/claude-buddy-marketplace"
-  },
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
   "plugins": [
     {
       "name": "claude-buddy",

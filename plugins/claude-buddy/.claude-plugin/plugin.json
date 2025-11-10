@@ -8,10 +8,7 @@
   },
   "license": "MIT",
   "homepage": "https://claude-buddy.dev",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rsts-dev/claude-buddy-marketplace"
-  },
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
   "keywords": [
     "personas",
     "workflow",
@@ -23,8 +20,5 @@
     "tdd",
     "documentation",
     "architecture"
-  ],
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  ]
 }
