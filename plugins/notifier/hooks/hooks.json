@@ -1,0 +1,104 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/error-notifier.py",
+            "description": "Pre-check for potential errors",
+            "enabled": true,
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/file-notifier.py",
+            "description": "Notify on file operations",
+            "enabled": true,
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/file-notifier.py",
+            "description": "Notify on command execution",
+            "enabled": true,
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/session-notifier.py",
+            "description": "Notify on session start",
+            "enabled": true,
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/session-notifier.py",
+            "description": "Notify on session stop",
+            "enabled": true,
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Notification": [],
+    "SubagentStop": [],
+    "PreCompact": []
+  },
+  "config": {
+    "notifier": {
+      "enabled": true,
+      "file_operations": {
+        "enabled": true,
+        "notify_on_write": true,
+        "notify_on_edit": true,
+        "notify_on_multi_edit": true
+      },
+      "command_execution": {
+        "enabled": true,
+        "notify_on_success": true,
+        "notify_on_failure": true
+      },
+      "session_events": {
+        "enabled": true,
+        "notify_on_start": true,
+        "notify_on_stop": true
+      },
+      "error_events": {
+        "enabled": true,
+        "notify_on_tool_error": true,
+        "notify_on_validation_error": true
+      },
+      "logging": {
+        "enabled": true,
+        "log_file": "$HOME/.claude/logs/notifier.log",
+        "log_level": "info"
+      }
+    }
+  }
+}

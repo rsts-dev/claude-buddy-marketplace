@@ -12,6 +12,10 @@
     {
       "name": "buddy",
       "source": "./plugins/buddy"
+    },
+    {
+      "name": "notifier",
+      "source": "./plugins/notifier"
     }
   ]
 }

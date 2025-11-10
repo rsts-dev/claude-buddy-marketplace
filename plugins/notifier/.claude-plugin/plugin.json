@@ -1,0 +1,20 @@
+{
+  "name": "notifier",
+  "version": "1.0.0",
+  "description": "Custom notification system for Claude Code events - file operations, command execution, session tracking, and error monitoring",
+  "author": {
+    "name": "Claude Buddy Contributors",
+    "url": "https://github.com/rsts-dev/claude-buddy-marketplace"
+  },
+  "license": "MIT",
+  "homepage": "https://claude-buddy.dev",
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
+  "keywords": [
+    "notifications",
+    "hooks",
+    "events",
+    "monitoring",
+    "workflow",
+    "automation"
+  ]
+}
