@@ -10,10 +10,10 @@
   "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
   "plugins": [
     {
-      "name": "claude-buddy",
+      "name": "buddy",
       "source": "./plugins/claude-buddy",
       "description": "Enterprise-Ready AI Development Platform with 12 personas, workflow automation, and safety-first design",
-      "version": "4.0.0",
+      "version": "4.0.1",
       "author": {
         "name": "Claude Buddy Contributors",
         "url": "https://github.com/rsts-dev/claude-buddy"

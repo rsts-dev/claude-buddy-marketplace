@@ -318,4 +318,4 @@ Copyright (c) 2025 Claude Buddy Contributors
 
 ---
 
-**Claude Buddy Plugin v4.0.0** - Enterprise-Ready AI Development Platform
+**Claude Buddy Plugin v4.0.1** - Enterprise-Ready AI Development Platform
