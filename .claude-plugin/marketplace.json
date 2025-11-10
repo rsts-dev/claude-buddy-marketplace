@@ -32,10 +32,7 @@
         "tdd",
         "documentation",
         "architecture"
-      ],
-      "requirements": {
-        "system": ["python>=3.8", "uv"]
-      }
+      ]
     }
   ]
 }
