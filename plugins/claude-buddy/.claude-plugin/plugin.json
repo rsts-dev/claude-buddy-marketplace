@@ -26,11 +26,5 @@
   ],
   "engines": {
     "node": ">=18.0.0"
-  },
-  "requirements": {
-    "system": [
-      "python>=3.8",
-      "uv"
-    ]
   }
 }
