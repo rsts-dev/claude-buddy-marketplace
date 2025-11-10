@@ -11,25 +11,7 @@
   "plugins": [
     {
       "name": "buddy",
-      "source": "./plugins/claude-buddy",
-      "description": "Enterprise-Ready AI Development Platform with 12 personas, workflow automation, and safety-first design",
-      "version": "4.0.1",
-      "author": {
-        "name": "Claude Buddy Contributors",
-        "url": "https://github.com/rsts-dev/claude-buddy"
-      },
-      "keywords": [
-        "personas",
-        "workflow",
-        "enterprise",
-        "mulesoft",
-        "jhipster",
-        "safety",
-        "automation",
-        "tdd",
-        "documentation",
-        "architecture"
-      ]
+      "source": "./plugins/claude-buddy"
     }
   ]
 }
