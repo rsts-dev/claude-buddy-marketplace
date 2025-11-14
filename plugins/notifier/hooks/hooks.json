@@ -1,72 +1,20 @@
 {
   "hooks": {
-    "PreToolUse": [
+    "PreToolUse": [],
+    "PostToolUse": [],
+    "SessionStart": [],
+    "Stop": [],
+    "Notification": [
       {
-        "matcher": ".*",
+        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/error-notifier.py",
-            "description": "Pre-check for potential errors",
-            "enabled": true,
-            "timeout": 5
+            "command": "uv run $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/notification.py --notify "
           }
         ]
       }
     ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/file-notifier.py",
-            "description": "Notify on file operations",
-            "enabled": true,
-            "timeout": 5
-          }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/file-notifier.py",
-            "description": "Notify on command execution",
-            "enabled": true,
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/session-notifier.py",
-            "description": "Notify on session start",
-            "enabled": true,
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "uv run --no-project python $HOME/.claude/plugins/marketplaces/claude-buddy-marketplace/plugins/notifier/hooks/session-notifier.py",
-            "description": "Notify on session stop",
-            "enabled": true,
-            "timeout": 5
-          }
-        ]
-      }
-    ],
-    "Notification": [],
     "SubagentStop": [],
     "PreCompact": []
   },
