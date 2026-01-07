@@ -1,6 +1,6 @@
 {
   "name": "buddy",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "description": "Enterprise-Ready AI Development Platform with 12 specialized personas, workflow automation from spec to deployment, and safety-first design. Includes enterprise templates for MuleSoft and JHipster.",
   "author": {
     "name": "Claude Buddy Contributors",

@@ -489,5 +489,5 @@ If you have the old hook system (`hooks/file-guard.py`, `hooks/command-validator
 
 ---
 
-**Version**: 5.0.0
+**Version**: 4.0.2
 **Last Updated**: 2026-01-06

@@ -486,5 +486,5 @@ The Damage Control security skill provides comprehensive protection:
 
 ---
 
-**Architecture Version**: 5.0.0
+**Architecture Version**: 4.0.2
 **Last Updated**: 2026-01-06

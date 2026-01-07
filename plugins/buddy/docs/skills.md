@@ -848,5 +848,5 @@ Savings: 67% reduction
 
 ---
 
-**Version**: 5.0.0
+**Version**: 4.0.2
 **Last Updated**: 2026-01-06
