@@ -23,117 +23,145 @@ Skills are Markdown files (`SKILL.md`) that automatically load into AI context w
 
 ## Skill Types
 
+### Directory Structure
+
+Skills use a flat hyphenated naming convention:
+
+```
+skills/
+├── persona-architect/           # 12 expert personas
+├── persona-frontend/
+├── persona-backend/
+├── persona-security/
+├── persona-performance/
+├── persona-analyzer/
+├── persona-qa/
+├── persona-refactorer/
+├── persona-devops/
+├── persona-mentor/
+├── persona-scribe/
+├── persona-po/
+├── domain-mulesoft/             # 3 technology domains
+├── domain-jhipster/
+├── domain-react/
+├── generator-spec/              # 4 document generators
+├── generator-plan/
+├── generator-tasks/
+├── generator-docs/
+└── damage-control/              # Security skill
+```
+
 ### Personas (12 total)
 
 Expert AI personalities that provide specialized perspectives:
 
 #### Technical Specialists
 
-**1. architect**
+**1. persona-architect**
 - **Role**: Systems design and long-term architecture specialist
 - **Priority**: maintainability > scalability > performance > short-term gains
 - **Specializations**: system design, architecture patterns, scalability, technical debt
 - **Auto-Activation**: Keywords like "architecture", "design", "scalability", "system"
 - **Compatible With**: performance, security, devops
 
-**2. frontend**
+**2. persona-frontend**
 - **Role**: UI/UX specialist and accessibility advocate
 - **Priority**: user experience > accessibility > performance > technical elegance
 - **Specializations**: UI components, responsive design, accessibility, performance
 - **Auto-Activation**: Keywords like "component", "ui", "react", "css", file patterns `*.jsx`, `*.tsx`
-- **Compatible With**: performance, qa, scribe
+- **Compatible With**: persona-performance, persona-qa, persona-scribe
 
-**3. backend**
+**3. persona-backend**
 - **Role**: Reliability engineer and API specialist
 - **Priority**: reliability > security > performance > features > convenience
 - **Specializations**: API design, database optimization, microservices, authentication
 - **Auto-Activation**: Keywords like "api", "database", "server", "endpoint"
-- **Compatible With**: security, performance, devops
+- **Compatible With**: persona-security, persona-performance, persona-devops
 
-**4. security**
+**4. persona-security**
 - **Role**: Threat modeler and vulnerability specialist
 - **Priority**: security > compliance > reliability > performance > convenience
 - **Specializations**: vulnerability assessment, threat modeling, secure coding, compliance
 - **Auto-Activation**: Keywords like "security", "vulnerability", "auth", "encryption"
-- **Compatible With**: backend, analyzer, qa
+- **Compatible With**: persona-backend, persona-analyzer, persona-qa
 
-**5. performance**
+**5. persona-performance**
 - **Role**: Optimization specialist and bottleneck elimination expert
 - **Priority**: measurement > critical path > user experience > premature optimization
 - **Specializations**: performance analysis, optimization, benchmarking, profiling
 - **Auto-Activation**: Keywords like "performance", "optimization", "bottleneck", "slow"
-- **Compatible With**: architect, backend, frontend
+- **Compatible With**: persona-architect, persona-backend, persona-frontend
 
 #### Process Experts
 
-**6. analyzer**
+**6. persona-analyzer**
 - **Role**: Root cause specialist and systematic investigator
 - **Priority**: evidence > systematic approach > thoroughness > speed
 - **Specializations**: root cause analysis, systematic debugging, evidence collection
 - **Auto-Activation**: Keywords like "analyze", "debug", "troubleshoot", "investigate"
-- **Compatible With**: qa, security, performance
+- **Compatible With**: persona-qa, persona-security, persona-performance
 
-**7. qa**
+**7. persona-qa**
 - **Role**: Quality advocate and testing specialist
 - **Priority**: prevention > detection > correction > comprehensive coverage
 - **Specializations**: test strategy, quality assurance, test automation, coverage analysis
 - **Auto-Activation**: Keywords like "test", "testing", "quality", "qa", "validation"
-- **Compatible With**: analyzer, security, frontend
+- **Compatible With**: persona-analyzer, persona-security, persona-frontend
 
-**8. refactorer**
+**8. persona-refactorer**
 - **Role**: Code quality specialist and technical debt manager
 - **Priority**: simplicity > maintainability > readability > performance > cleverness
 - **Specializations**: code refactoring, technical debt management, clean code
 - **Auto-Activation**: Keywords like "refactor", "cleanup", "technical debt", "code quality"
-- **Compatible With**: architect, performance, qa
+- **Compatible With**: persona-architect, persona-performance, persona-qa
 
-**9. devops**
+**9. persona-devops**
 - **Role**: Infrastructure specialist and deployment expert
 - **Priority**: automation > observability > reliability > scalability > manual processes
 - **Specializations**: infrastructure automation, deployment pipelines, monitoring
 - **Auto-Activation**: Keywords like "deploy", "infrastructure", "cicd", "docker", "kubernetes"
-- **Compatible With**: architect, backend, security
+- **Compatible With**: persona-architect, persona-backend, persona-security
 
 #### Knowledge Specialists
 
-**10. mentor**
+**10. persona-mentor**
 - **Role**: Knowledge transfer specialist and educator
 - **Priority**: understanding > knowledge transfer > teaching > task completion
 - **Specializations**: knowledge transfer, educational content, mentoring, skill development
 - **Auto-Activation**: Keywords like "explain", "learn", "understand", "teach", "guide"
-- **Compatible With**: scribe, architect, analyzer
+- **Compatible With**: persona-scribe, persona-architect, persona-analyzer
 
-**11. scribe**
+**11. persona-scribe**
 - **Role**: Professional writer and documentation specialist
 - **Priority**: clarity > audience needs > completeness > brevity
 - **Specializations**: technical writing, documentation, professional communication
 - **Auto-Activation**: Keywords like "document", "write", "documentation", "readme"
-- **Compatible With**: mentor, qa, frontend
+- **Compatible With**: persona-mentor, persona-qa, persona-frontend
 
-**12. po (Product Owner)**
+**12. persona-po (Product Owner)**
 - **Role**: Product requirement specialist and strategic planner
 - **Priority**: user value > market fit > technical feasibility > resource optimization
 - **Specializations**: product requirements, user stories, acceptance criteria, strategic planning
 - **Auto-Activation**: Keywords like "requirements", "user stories", "product spec", "roadmap"
-- **Compatible With**: architect, scribe, mentor
+- **Compatible With**: persona-architect, persona-scribe, persona-mentor
 
 ### Domains (3 total)
 
 Technology-specific knowledge and best practices:
 
-**1. react**
+**1. domain-react**
 - **Technology**: React.js and ecosystem
 - **Scope**: Component patterns, hooks, state management, performance
 - **Auto-Activation**: React projects (package.json), `.jsx`/`.tsx` files
 - **Provides**: React best practices, hooks patterns, component architecture
 
-**2. jhipster**
+**2. domain-jhipster**
 - **Technology**: JHipster full-stack framework
 - **Scope**: Entity modeling, Spring Boot backend, Angular/React frontend
 - **Auto-Activation**: JHipster projects (`.yo-rc.json`), JDL files
 - **Provides**: JHipster conventions, entity modeling, microservices architecture
 
-**3. mulesoft**
+**3. domain-mulesoft**
 - **Technology**: MuleSoft Anypoint Platform
 - **Scope**: DataWeave, RAML, API-led connectivity, Mule flows
 - **Auto-Activation**: MuleSoft projects (mule-artifact.json), `.dwl`, `.raml` files
@@ -143,29 +171,43 @@ Technology-specific knowledge and best practices:
 
 Document generation capabilities with foundation-aware templates:
 
-**1. spec-generator**
+**1. generator-spec**
 - **Purpose**: Generate feature specifications from descriptions
 - **Auto-Activation**: Keywords like "spec", "specification", "feature requirements"
 - **Provides**: Spec templates (Default, MuleSoft, JHipster), clarification workflow
 - **Output**: `specs/[YYYYMMDD-slug]/spec.md`
 
-**2. plan-generator**
+**2. generator-plan**
 - **Purpose**: Create implementation plans from specifications
 - **Auto-Activation**: Keywords like "plan", "implementation plan", "architecture plan"
 - **Provides**: Plan templates with tech stack, architecture, phases
 - **Output**: `specs/[YYYYMMDD-slug]/plan.md`
 
-**3. tasks-generator**
+**3. generator-tasks**
 - **Purpose**: Generate task breakdowns from plans
 - **Auto-Activation**: Keywords like "tasks", "task breakdown", "implementation tasks"
 - **Provides**: TDD-based task templates, dependency mapping, phase organization
 - **Output**: `specs/[YYYYMMDD-slug]/tasks.md`
 
-**4. docs-generator**
+**4. generator-docs**
 - **Purpose**: Create comprehensive technical documentation
 - **Auto-Activation**: Keywords like "documentation", "docs", "readme", "api docs"
 - **Provides**: Documentation templates, structure guidance, writing standards
 - **Output**: Various documentation files (README.md, API docs, architecture docs)
+
+### Security (1 total)
+
+**damage-control**
+- **Purpose**: Defense-in-depth protection system with PreToolUse hooks
+- **Auto-Activation**: Keywords like "damage control", "security hooks", "protected paths", "blocked commands"
+- **Provides**:
+  - Command pattern blocking via `bashToolPatterns`
+  - Path protection with three levels: `zeroAccessPaths`, `readOnlyPaths`, `noDeletePaths`
+  - Ask patterns for confirmation dialogs
+  - Installation workflows via cookbook
+- **Configuration**: `patterns.yaml` (single source of truth)
+- **Implementations**: Python (UV) and TypeScript (Bun)
+- **See Also**: [hooks.md](hooks.md) for detailed documentation
 
 ## Auto-Activation Mechanism
 
@@ -439,7 +481,7 @@ Loaded only when referenced:
 ### Example Structure
 
 ```
-skills/personas/architect/
+skills/persona-architect/
 ├── SKILL.md                    # Core (auto-loaded)
 ├── design-patterns.md          # Supporting (on-demand)
 ├── architecture-decisions.md   # Supporting (on-demand)
@@ -449,7 +491,7 @@ skills/personas/architect/
 
 **Usage**:
 1. User requests architectural guidance
-2. architect skill auto-loads SKILL.md (~1200 tokens)
+2. persona-architect skill auto-loads SKILL.md (~1200 tokens)
 3. User asks about design patterns
 4. AI references design-patterns.md (~3000 tokens)
 5. Total: ~4200 tokens (vs. ~6000 if all loaded upfront)
@@ -471,7 +513,7 @@ Auto-Activation: Keywords: "terraform", "ansible", "iac", "infrastructure"
 ### Step 2: Create Skill Directory
 
 ```bash
-mkdir -p skills/domains/infrastructure-as-code
+mkdir -p skills/domain-infrastructure-as-code
 ```
 
 ### Step 3: Write SKILL.md
@@ -563,8 +605,8 @@ Reusable, composable infrastructure components.
 
 ```bash
 # Create detailed examples
-touch skills/domains/infrastructure-as-code/terraform-patterns.md
-touch skills/domains/infrastructure-as-code/ansible-best-practices.md
+touch skills/domain-infrastructure-as-code/terraform-patterns.md
+touch skills/domain-infrastructure-as-code/ansible-best-practices.md
 ```
 
 ### Step 5: Test Activation
@@ -584,14 +626,14 @@ touch skills/domains/infrastructure-as-code/ansible-best-practices.md
 Check that supporting files only load when referenced
 ```
 
-### Step 6: Update Skills README
+### Step 6: Update Documentation
 
 ```markdown
 ### Domains
-- **react**: React.js development patterns
-- **jhipster**: JHipster full-stack applications
-- **mulesoft**: MuleSoft Anypoint Platform
-- **infrastructure-as-code**: Terraform, Ansible, CloudFormation
+- **domain-react**: React.js development patterns
+- **domain-jhipster**: JHipster full-stack applications
+- **domain-mulesoft**: MuleSoft Anypoint Platform
+- **domain-infrastructure-as-code**: Terraform, Ansible, CloudFormation
 ```
 
 ## Skill Invocation Patterns
@@ -806,5 +848,5 @@ Savings: 67% reduction
 
 ---
 
-**Version**: 4.0.0
-**Last Updated**: 2025-11-07
+**Version**: 5.0.0
+**Last Updated**: 2026-01-06

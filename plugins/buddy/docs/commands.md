@@ -144,6 +144,22 @@ The AI receives this content when the command is invoked.
 
 **Parameters**: None (analyzes project)
 
+### 9. `/buddy:install-damage-control-system` - Security Hooks Deployment
+**File**: `commands/buddy/install-damage-control-system.md`
+**Purpose**: Deploy the Damage Control security system
+**Usage**: `/buddy:install-damage-control-system`
+
+**Implementation**:
+1. Activate the damage-control skill
+2. Read and execute the installation workflow from cookbook
+3. Choose installation level (global, project, or project personal)
+4. Copy hooks and patterns.yaml to target location
+5. Configure settings.json with hook entries
+
+**Parameters**: None (interactive workflow)
+
+**See Also**: [hooks.md](hooks.md) for Damage Control documentation
+
 ## Command Lifecycle
 
 ### 1. Command Registration
@@ -415,5 +431,5 @@ Real-world scenarios:
 
 ---
 
-**Version**: 4.0.0
-**Last Updated**: 2025-11-07
+**Version**: 5.0.0
+**Last Updated**: 2026-01-06

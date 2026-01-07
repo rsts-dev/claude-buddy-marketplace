@@ -53,17 +53,17 @@ graph TD
     CLI -->|Plugin API| Plugin[Claude Buddy Plugin]
 
     subgraph Plugin[" "]
-        Commands[Commands<br/>8 total]
+        Commands[Commands<br/>9 total]
         Agents[Agents<br/>8 total]
-        Hooks[Hooks<br/>3 total]
+        DamageControl[Damage Control<br/>Security Skill]
         Skills[Skills<br/>Personas: 12<br/>Domains: 3<br/>Generators: 4]
-        HooksConfig[hooks.json<br/>Configuration]
         Templates[Templates<br/>3 types]
 
         Commands --> Agents
         Commands --> Skills
+        Commands --> DamageControl
         Agents --> Skills
-        Hooks --> HooksConfig
+        DamageControl -->|patterns.yaml| Protection[Path Protection<br/>Command Blocking]
     end
 ```
 
@@ -77,7 +77,7 @@ User-facing slash commands that serve as entry points:
 - Invoke appropriate agents
 - Handle errors and user feedback
 
-**8 Commands**:
+**9 Commands**:
 - `/buddy:persona` - Activate specialized personas
 - `/buddy:foundation` - Initialize project foundation
 - `/buddy:spec` - Create feature specifications
@@ -86,6 +86,7 @@ User-facing slash commands that serve as entry points:
 - `/buddy:implement` - Execute tasks with TDD
 - `/buddy:commit` - Create professional git commits
 - `/buddy:docs` - Generate comprehensive documentation
+- `/buddy:install-damage-control-system` - Deploy security hooks
 
 #### 2. Agents Layer
 **Location**: `agents/*.md`
@@ -105,18 +106,24 @@ Specialized task executors with detailed prompts:
 - `git-workflow` - Professional commit creation
 - `docs-generator` - Documentation generation
 
-#### 3. Hooks Layer
-**Location**: `hooks/*.py` + `hooks/hooks.json`
+#### 3. Damage Control (Security Skill)
+**Location**: `skills/damage-control/`
 
-Safety and automation through Python-based hooks:
-- Pre-tool validation (before execution)
-- Post-tool automation (after execution)
-- Configurable via `hooks.json`
+Defense-in-depth protection system via PreToolUse hooks:
+- Command pattern blocking (dangerous bash commands)
+- Path protection with three levels
+- Ask patterns for confirmation dialogs
+- Configurable via `patterns.yaml`
 
-**3 Hooks**:
-- `file-guard.py` - Protects sensitive files from modification
-- `command-validator.py` - Prevents dangerous bash commands
-- `auto-formatter.py` - Automatic code formatting after edits
+**Protection Levels**:
+- `zeroAccessPaths` - No access (secrets, credentials, keys)
+- `readOnlyPaths` - Read allowed, modifications blocked
+- `noDeletePaths` - All operations except delete
+
+**Hook Implementations**:
+- `bash-tool-damage-control.py/.ts` - Validates bash commands
+- `edit-tool-damage-control.py/.ts` - Protects file edits
+- `write-tool-damage-control.py/.ts` - Protects file writes
 
 #### 4. Skills Layer
 **Location**: `skills/`
@@ -126,10 +133,11 @@ Context and expertise injection via Claude Code Skills:
 - Provide specialized knowledge
 - Enable multi-persona collaboration
 
-**3 Skill Types**:
-- **Personas** (`skills/personas/`): 12 expert perspectives
-- **Domains** (`skills/domains/`): Technology frameworks (MuleSoft, JHipster, React)
-- **Generators** (`skills/generators/`): Document creators (specs, plans, tasks, docs)
+**4 Skill Types** (flat hyphenated structure):
+- **Personas** (`skills/persona-*/`): 12 expert perspectives
+- **Domains** (`skills/domain-*/`): Technology frameworks (MuleSoft, JHipster, React)
+- **Generators** (`skills/generator-*/`): Document creators (specs, plans, tasks, docs)
+- **Security** (`skills/damage-control/`): Protection system with hooks
 
 #### 5. Templates System
 **Location**: Embedded in agent prompts
@@ -185,6 +193,8 @@ flowchart TD
     Skills -->|Skills provide context to AI| Response["AI Response with Merged Persona Perspectives<br/><br/>• Security: threat modeling, OWASP top 10<br/>• Backend: API reliability, error handling"]
 ```
 
+Note: Skills use flat hyphenated naming (e.g., `skills/persona-security/SKILL.md`, `skills/persona-backend/SKILL.md`).
+
 ## Component Interaction Patterns
 
 ### 1. Command → Agent Invocation
@@ -224,17 +234,23 @@ You are a spec-writer agent...
 Skills activate automatically from `.claude/skills/`.
 ```
 
-### 3. Hooks → Tool Call Interception
-Hooks execute via Python scripts:
-- **Pre-tool**: Validate before execution (e.g., block dangerous commands)
-- **Post-tool**: Automate after execution (e.g., format code)
-- Configured via `hooks/hooks.json`
+### 3. Damage Control → Tool Call Interception
+Damage Control hooks execute via Python or TypeScript scripts:
+- **Pre-tool**: Validate before execution (e.g., block dangerous commands, protect paths)
+- Configured via `patterns.yaml` (single source of truth)
 
-**Example** (`hooks/file-guard.py`):
+**Example** (`skills/damage-control/hooks/damage-control-python/bash-tool-damage-control.py`):
 ```python
-# Executes before Write/Edit tool calls
-# Checks if target file is protected (.env, secrets, etc.)
-# Returns: allow/block/warn
+# Executes before Bash tool calls
+# Checks command against bashToolPatterns in patterns.yaml
+# Returns: allow/block/ask (confirmation dialog)
+```
+
+**Example** (`skills/damage-control/hooks/damage-control-python/write-tool-damage-control.py`):
+```python
+# Executes before Write tool calls
+# Checks path against zeroAccessPaths, readOnlyPaths, noDeletePaths
+# Returns: allow/block based on protection level
 ```
 
 ### 4. Template Application
@@ -267,63 +283,77 @@ Templates provide context to agents:
 ```
 plugins/buddy/
 ├── .claude-plugin/
-│   └── plugin.json              # Plugin manifest
+│   └── plugin.json                      # Plugin manifest
 ├── commands/
-│   ├── persona.md               # /buddy:persona command
-│   ├── foundation.md            # /buddy:foundation command
-│   ├── spec.md                  # /buddy:spec command
-│   ├── plan.md                  # /buddy:plan command
-│   ├── tasks.md                 # /buddy:tasks command
-│   ├── implement.md             # /buddy:implement command
-│   ├── commit.md                # /buddy:commit command
-│   └── docs.md                  # /buddy:docs command
+│   ├── persona.md                       # /buddy:persona command
+│   ├── foundation.md                    # /buddy:foundation command
+│   ├── spec.md                          # /buddy:spec command
+│   ├── plan.md                          # /buddy:plan command
+│   ├── tasks.md                         # /buddy:tasks command
+│   ├── implement.md                     # /buddy:implement command
+│   ├── commit.md                        # /buddy:commit command
+│   ├── docs.md                          # /buddy:docs command
+│   └── install-damage-control-system.md # Security hooks deployment
 ├── agents/
-│   ├── persona-dispatcher.md   # Persona selection agent
-│   ├── foundation.md           # Project setup agent
-│   ├── spec-writer.md          # Specification creation agent
-│   ├── plan-writer.md          # Planning agent
-│   ├── tasks-writer.md         # Task breakdown agent
-│   ├── task-executor.md        # Implementation agent
-│   ├── git-workflow.md         # Commit creation agent
-│   └── docs-generator.md       # Documentation agent
-├── hooks/
-│   ├── hooks.json              # Hook configuration
-│   ├── file-guard.py           # File protection hook
-│   ├── command-validator.py    # Command validation hook
-│   └── auto-formatter.py       # Auto-formatting hook
-├── skills/
-│   ├── README.md               # Skills overview
-│   ├── personas/               # 12 expert personas
-│   │   ├── architect/
-│   │   ├── frontend/
-│   │   ├── backend/
-│   │   ├── security/
-│   │   ├── performance/
-│   │   ├── analyzer/
-│   │   ├── qa/
-│   │   ├── refactorer/
-│   │   ├── devops/
-│   │   ├── mentor/
-│   │   ├── scribe/
-│   │   └── po/
-│   ├── domains/                # Technology frameworks
-│   │   ├── mulesoft/
-│   │   ├── jhipster/
-│   │   └── react/
-│   └── generators/             # Document creators
-│       ├── spec-writer/
-│       ├── plan-writer/
-│       ├── tasks-writer/
-│       └── docs-generator/
-├── docs/                       # Architecture documentation
+│   ├── persona-dispatcher.md            # Persona selection agent
+│   ├── foundation.md                    # Project setup agent
+│   ├── spec-writer.md                   # Specification creation agent
+│   ├── plan-writer.md                   # Planning agent
+│   ├── tasks-writer.md                  # Task breakdown agent
+│   ├── task-executor.md                 # Implementation agent
+│   ├── git-workflow.md                  # Commit creation agent
+│   └── docs-generator.md                # Documentation agent
+├── skills/                              # Flat hyphenated structure
+│   ├── persona-architect/               # 12 expert personas
+│   ├── persona-frontend/
+│   ├── persona-backend/
+│   ├── persona-security/
+│   ├── persona-performance/
+│   ├── persona-analyzer/
+│   ├── persona-qa/
+│   ├── persona-refactorer/
+│   ├── persona-devops/
+│   ├── persona-mentor/
+│   ├── persona-scribe/
+│   ├── persona-po/
+│   ├── domain-mulesoft/                 # Technology frameworks
+│   ├── domain-jhipster/
+│   ├── domain-react/
+│   ├── generator-spec/                  # Document creators
+│   ├── generator-plan/
+│   ├── generator-tasks/
+│   ├── generator-docs/
+│   └── damage-control/                  # Security skill
+│       ├── SKILL.md                     # Skill definition
+│       ├── patterns.yaml                # Security patterns (single source of truth)
+│       ├── cookbook/                    # Workflow prompts
+│       │   ├── install_damage_control_ag_workflow.md
+│       │   ├── modify_damage_control_ag_workflow.md
+│       │   ├── manual_control_damage_control_ag_workflow.md
+│       │   ├── list_damage_controls.md
+│       │   ├── test_damage_control.md
+│       │   └── build_for_windows.md
+│       ├── hooks/
+│       │   ├── damage-control-python/   # Python/UV implementation
+│       │   │   ├── bash-tool-damage-control.py
+│       │   │   ├── edit-tool-damage-control.py
+│       │   │   ├── write-tool-damage-control.py
+│       │   │   └── test-damage-control.py
+│       │   └── damage-control-typescript/ # Bun/TypeScript implementation
+│       │       ├── bash-tool-damage-control.ts
+│       │       ├── edit-tool-damage-control.ts
+│       │       ├── write-tool-damage-control.ts
+│       │       └── test-damage-control.ts
+│       └── test-prompts/                # Validation prompts
+├── docs/                                # Architecture documentation
 │   ├── README.md
-│   ├── architecture.md         # This file
+│   ├── architecture.md                  # This file
 │   ├── commands.md
 │   ├── agents.md
 │   ├── hooks.md
 │   ├── skills.md
 │   └── templates.md
-└── README.md                   # User-facing documentation
+└── README.md                            # User-facing documentation
 ```
 
 ## Extension Points
@@ -340,14 +370,14 @@ plugins/buddy/
 3. Write detailed agent prompt
 4. Reference from command
 
-### Adding New Hooks
-1. Create `hooks/my-hook.py`
-2. Implement hook protocol (read stdin, write stdout)
-3. Register in `hooks/hooks.json`
-4. Test with hook validation
+### Extending Damage Control
+1. Edit `skills/damage-control/patterns.yaml` to add patterns
+2. Add new command patterns to `bashToolPatterns`
+3. Add protected paths to `zeroAccessPaths`, `readOnlyPaths`, or `noDeletePaths`
+4. Test with cookbook workflows in `skills/damage-control/cookbook/`
 
 ### Adding New Skills
-1. Create `skills/category/my-skill/SKILL.md`
+1. Create `skills/type-name/SKILL.md` (flat hyphenated structure)
 2. Define skill metadata in frontmatter
 3. Write skill content (expertise, principles, etc.)
 4. Skills auto-activate based on context
@@ -365,9 +395,9 @@ plugins/buddy/
 - Agent invocation depends on AI model and task complexity
 - Use `model: haiku` for simple tasks, `opus` for complex reasoning
 
-### Hook Execution Time
-- Pre-tool hooks must complete within 10 seconds (configurable)
-- Post-tool hooks can run up to 30 seconds (for formatting)
+### Damage Control Execution Time
+- Pre-tool hooks (Damage Control) complete within milliseconds
+- Pattern matching against YAML is fast
 - Hooks timeout automatically to prevent blocking
 
 ### Skills Loading
@@ -378,30 +408,44 @@ plugins/buddy/
 ### Memory Usage
 - Plugin itself is stateless
 - Skills are loaded into AI context (impacts token usage)
-- Hooks run in isolated Python processes
+- Damage Control hooks run in isolated Python or TypeScript processes
 
 ## Security Model
 
-### Hook Sandboxing
-- Hooks run as separate Python processes
-- No network access by default
-- File system access limited to project directory
+### Damage Control System
+
+The Damage Control security skill provides comprehensive protection:
+
+#### Hook Sandboxing
+- Hooks run as separate Python or TypeScript processes
+- Configurable via `patterns.yaml` (single source of truth)
 - Timeout enforcement prevents infinite loops
 
-### File Protection
-- Sensitive files blocked from modification (.env, credentials, etc.)
-- Whitelist for exceptions
-- Configurable via `hooks/hooks.json`
+#### Path Protection (Three Levels)
+- **zeroAccessPaths**: Complete block - no read, write, edit, or delete
+  - Examples: `.env`, `~/.ssh/`, `*.pem`, `~/.aws/`
+- **readOnlyPaths**: Read allowed, modifications blocked
+  - Examples: `/etc/`, `~/.bashrc`, `*.lock`, `node_modules/`
+- **noDeletePaths**: All operations except delete
+  - Examples: `~/.claude/`, `LICENSE`, `README.md`, `.git/`
 
-### Command Validation
-- Dangerous bash commands blocked (rm -rf, sudo, format, etc.)
-- Warning for performance-impacting commands
-- Configurable strictness levels
+#### Command Pattern Blocking
+- Dangerous commands blocked by regex patterns in `bashToolPatterns`
+- Categories: destructive file ops, git operations, cloud CLI, database CLI
+- **Ask patterns**: Some commands trigger confirmation dialog (`ask: true`)
+  - Examples: `git stash drop`, `DELETE FROM ... WHERE id=`
 
-### Git Safety
-- Branch protection (main/master)
-- Commit message validation
-- No AI attribution in commits (per project requirements)
+#### Supported Platforms
+| Implementation | Runtime | Install Command |
+|----------------|---------|-----------------|
+| Python | UV (Astral) | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| TypeScript | Bun | `curl -fsSL https://bun.sh/install \| bash` |
+
+### Git Safety (via Damage Control)
+- Branch protection patterns for destructive operations
+- `git push --force` blocked (use `--force-with-lease`)
+- `git reset --hard` blocked
+- `git stash drop` requires confirmation
 
 ## Error Handling
 
@@ -415,10 +459,10 @@ plugins/buddy/
 - Error context provided to user
 - Retry logic for transient failures
 
-### Hook Errors
-- Pre-tool hook failures block operation
-- Post-tool hook failures log warnings
-- Hook timeouts fail gracefully
+### Damage Control Errors
+- Pre-tool hook failures block operation (exit code 2)
+- Ask patterns trigger confirmation dialog (exit code 0 with JSON)
+- Hook timeouts fail gracefully (exit code 1)
 
 ### Skills Errors
 - Missing skills skip activation
@@ -442,5 +486,5 @@ plugins/buddy/
 
 ---
 
-**Architecture Version**: 4.0.0
-**Last Updated**: 2025-11-07
+**Architecture Version**: 5.0.0
+**Last Updated**: 2026-01-06

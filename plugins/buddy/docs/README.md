@@ -48,24 +48,26 @@ Claude Buddy is built on several core principles:
 
 ```mermaid
 graph LR
-    A[Claude Buddy Plugin] --> B[Commands - 8]
+    A[Claude Buddy Plugin] --> B[Commands - 9]
     A --> C[Agents - 8]
-    A --> D[Hooks - 3]
-    A --> E[Skills - 3 types]
+    A --> D[Damage Control]
+    A --> E[Skills - 4 types]
     A --> F[Templates - 3]
 
     B -.->|"User-facing slash commands"| B
     C -.->|"Specialized task executors"| C
-    D -.->|"Safety and automation layer"| D
+    D -.->|"Security hooks & protection"| D
     F -.->|"Enterprise project types"| F
 
     E --> G[Personas - 12]
     E --> H[Domains - 3]
     E --> I[Generators - 4]
+    E --> J[Security - 1]
 
     G -.->|"Expert perspectives"| G
     H -.->|"Technology frameworks"| H
     I -.->|"Document creators"| I
+    J -.->|"damage-control"| J
 ```
 
 ## Contributing to Documentation
@@ -86,5 +88,5 @@ When updating this documentation:
 
 ---
 
-**Documentation Version**: 4.0.0
-**Last Updated**: 2025-11-07
+**Documentation Version**: 5.0.0
+**Last Updated**: 2026-01-06

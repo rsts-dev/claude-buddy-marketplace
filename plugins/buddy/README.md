@@ -144,31 +144,35 @@ Claude Buddy includes 12 specialized AI personas that provide expert perspective
 
 ## Safety Features
 
-Claude Buddy implements multiple layers of protection through Python-based hooks:
+Claude Buddy implements defense-in-depth protection through the **Damage Control** security skill:
 
-### File Protection
-- Blocks modification of sensitive files (`.env`, credentials, secrets, keys)
-- Customizable protection patterns
-- Whitelist support for exceptions
-- Configurable via hooks configuration
+### Path Protection (Three Levels)
+- **zeroAccessPaths**: Complete block - no read, write, edit, or delete
+  - Protects: `.env`, `~/.ssh/`, `*.pem`, `~/.aws/`, credentials, keys
+- **readOnlyPaths**: Read allowed, modifications blocked
+  - Protects: `/etc/`, `*.lock`, `node_modules/`, build artifacts
+- **noDeletePaths**: All operations except delete
+  - Protects: `~/.claude/`, `LICENSE`, `README.md`, `.git/`
 
-### Command Validation
-- Prevents dangerous operations (`rm -rf`, `sudo`, `format`)
-- Warns about performance-impacting commands
-- Suggests best practices
-- Configurable strictness levels
+### Command Pattern Blocking
+- Blocks dangerous bash commands via regex patterns
+- Categories: destructive file ops, git operations, cloud CLI, database CLI
+- Examples: `rm -rf`, `git reset --hard`, `aws s3 rm --recursive`
+- **Ask patterns**: Some operations trigger confirmation dialog instead of blocking
 
 ### Git Safety
-- Professional commit messages (no AI attribution)
-- Branch protection (main/master)
-- Commit message validation
-- Conventional commits support
+- `git push --force` blocked (use `--force-with-lease`)
+- `git reset --hard` blocked
+- `git stash drop` requires confirmation
+- Branch deletion operations require confirmation
 
-### Auto-Formatting
-- Automatic code formatting after writes/edits
-- Supports: `.py`, `.js`, `.ts`, `.tsx`, `.jsx`, `.json`, `.css`, `.scss`, `.md`
-- Configurable file extensions
-- Exclude patterns for node_modules, etc.
+### Installation
+```bash
+/buddy:install-damage-control-system
+```
+
+### Configuration
+All patterns configured via `patterns.yaml` (single source of truth). See [hooks documentation](docs/hooks.md) for details.
 
 ## Enterprise Templates
 
@@ -191,32 +195,6 @@ Claude Buddy implements multiple layers of protection through Python-based hooks
 - Language-agnostic
 - Flexible workflows
 
-## Configuration
-
-Hook behavior can be customized by editing `hooks/hooks.json` in the plugin directory:
-
-```json
-{
-  "config": {
-    "file_protection": {
-      "enabled": true,
-      "strict_mode": false
-    },
-    "command_validation": {
-      "enabled": true,
-      "block_dangerous": true
-    },
-    "auto_formatting": {
-      "enabled": true,
-      "extensions": [".py", ".js", ".ts", ".tsx", ".jsx", ".json"]
-    },
-    "git": {
-      "branch_protection": ["main", "master"],
-      "commit_validation": true
-    }
-  }
-}
-```
 
 ## Usage Examples
 
@@ -299,7 +277,7 @@ authentication, and role-based access control
 **Issue:** Persona commands don't load specialized context
 
 **Solution:**
-1. Check that Skills are in `skills/personas/` directory
+1. Check that Skills are in `skills/persona-*/` directories (flat hyphenated structure)
 2. Verify SKILL.md files exist for each persona
 3. Try explicit persona selection: `/buddy:persona architect backend - your question`
 4. Check Claude Code version (latest required)
@@ -318,4 +296,4 @@ Copyright (c) 2025 Claude Buddy Contributors
 
 ---
 
-**Claude Buddy Plugin v4.0.1** - Enterprise-Ready AI Development Platform
+**Claude Buddy Plugin v5.0.0** - Enterprise-Ready AI Development Platform
