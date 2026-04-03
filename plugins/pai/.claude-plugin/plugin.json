@@ -1,0 +1,22 @@
+{
+  "name": "pai",
+  "version": "1.0.0",
+  "description": "Install and configure Daniel Miessler's Personal AI Infrastructure (PAI) with guided identity customization, symlinked user data, and upgrade support",
+  "author": {
+    "name": "Claude Buddy Contributors",
+    "url": "https://github.com/rsts-dev/claude-buddy-marketplace"
+  },
+  "license": "MIT",
+  "homepage": "https://claude-buddy.dev",
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
+  "keywords": [
+    "pai",
+    "personal-ai",
+    "danielmiessler",
+    "memory",
+    "identity",
+    "configuration",
+    "setup",
+    "upgrade"
+  ]
+}
