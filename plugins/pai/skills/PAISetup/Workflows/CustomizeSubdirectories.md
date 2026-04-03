@@ -144,5 +144,5 @@ When user selects "Done", report which subdirectories were set up:
 ### Available for Later
 - {list of subdirectories not set up}
 
-These can be configured later by running /pai:pai-setup customize
+These can be configured later by running /pai:setup customize
 ```

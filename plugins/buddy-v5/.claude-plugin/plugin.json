@@ -1,7 +1,7 @@
 {
   "name": "buddy",
   "version": "5.1.0",
-  "description": "PAI-native development workflow platform with 7 skills, extensible domain system, and 12 specialist personas covering the complete lifecycle from specification to deployment. Requires PAI (pai-setup plugin).",
+  "description": "PAI-native development workflow platform with 7 skills, extensible domain system, and 12 specialist personas covering the complete lifecycle from specification to deployment. Requires PAI (pai plugin).",
   "author": {
     "name": "Claude Buddy Contributors",
     "url": "https://github.com/rsts-dev/claude-buddy-marketplace"

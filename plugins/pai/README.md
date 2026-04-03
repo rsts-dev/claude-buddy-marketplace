@@ -22,31 +22,31 @@ Install and configure [Daniel Miessler's Personal AI Infrastructure (PAI)](https
 ### Fresh Install
 
 ```
-/pai:pai-setup
+/pai:setup
 ```
 
 or
 
 ```
-/pai:pai-setup install
+/pai:setup install
 ```
 
 ### Upgrade Existing Installation
 
 ```
-/pai:pai-setup upgrade
+/pai:setup upgrade
 ```
 
 ### Customize Identity Files
 
 ```
-/pai:pai-setup customize
+/pai:setup customize
 ```
 
 ### Verify Installation
 
 ```
-/pai:pai-setup verify
+/pai:setup verify
 ```
 
 ## Architecture
@@ -74,7 +74,7 @@ or
 ```
 plugins/pai/
 ├── .claude-plugin/plugin.json
-├── commands/pai-setup.md
+├── commands/setup.md
 ├── skills/PAISetup/
 │   ├── SKILL.md
 │   └── Workflows/

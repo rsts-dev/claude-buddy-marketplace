@@ -201,7 +201,7 @@ Read and execute `Workflows/VerifyInstallation.md` to confirm everything is set 
 Question: "PAI is installed. Would you like to customize your identity files now?"
 Options:
 - Yes, customize now — Walk through identity files one by one
-- No, skip for now — You can run this later with /pai:pai-setup customize
+- No, skip for now — You can run this later with /pai:setup customize
 ```
 
 2. If "Yes": Read and execute `Workflows/CustomizeIdentity.md`
@@ -227,6 +227,6 @@ Present the installation summary:
 - Symlinks for persistent user data across upgrades
 
 ### Next Steps
-1. Run `/pai:pai-setup customize` to set up your identity files
+1. Run `/pai:setup customize` to set up your identity files
 2. Restart your Claude Code session for changes to take effect
 ```

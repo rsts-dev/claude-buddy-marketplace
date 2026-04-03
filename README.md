@@ -117,7 +117,7 @@ Interactive wizard guides you through creating detection rules, analysis workflo
 # 3. Restart Claude Code
 
 # 4. Set up PAI
-/pai:pai-setup
+/pai:setup
 
 # 5. Initialize project foundation
 /buddy:foundation

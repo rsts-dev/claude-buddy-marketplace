@@ -16,7 +16,7 @@ If this directory exists, load and apply any PREFERENCES.md configurations. If n
 
 ## Prerequisites
 
-PAI must be installed. Check `~/.buddy/.pai-version`. If missing, inform user: "PAI is required. Run `/pai:pai-setup` to install."
+PAI must be installed. Check `~/.buddy/.pai-version`. If missing, inform user: "PAI is required. Run `/pai:setup` to install."
 
 ## Workflow Routing
 

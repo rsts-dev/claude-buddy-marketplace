@@ -109,5 +109,5 @@ Report which files were customized, which were skipped, and which still need set
 ### Not Set Up
 - {list of files still empty — user can run customization again later}
 
-To re-run customization: /pai:pai-setup customize
+To re-run customization: /pai:setup customize
 ```
