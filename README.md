@@ -1,6 +1,14 @@
 # Claude Buddy Marketplace
 
-Official Claude Code plugin marketplace for Claude Buddy.
+Official Claude Code plugin marketplace for Claude Buddy and PAI.
+
+## Plugins
+
+| Plugin | Command Prefix | Description |
+|--------|---------------|-------------|
+| **[buddy](plugins/buddy-v5/)** | `buddy:*` | Development workflow platform with domains, personas, and TDD |
+| **[pai](plugins/pai/)** | `pai:*` | Install and configure Personal AI Infrastructure |
+| **[notifier](plugins/notifier/)** | `notifier:*` | Custom notification system for Claude Code events |
 
 ## Installation
 
@@ -10,94 +18,91 @@ Official Claude Code plugin marketplace for Claude Buddy.
 /plugin marketplace add rsts-dev/claude-buddy-marketplace
 ```
 
-### Install Claude Buddy Plugin
+### Install Plugins
 
 ```bash
+# Core development platform
 /plugin install buddy@claude-buddy-marketplace
+
+# PAI infrastructure (required by buddy)
+/plugin install pai@claude-buddy-marketplace
+
+# Optional: notifications
+/plugin install notifier@claude-buddy-marketplace
 ```
 
 ### Restart Claude Code
 
-Close and reopen Claude Code to activate the plugin.
+Close and reopen Claude Code to activate plugins.
 
 ## What is Claude Buddy?
 
-Claude Buddy is an Enterprise-Ready AI Development Platform featuring:
-- **12 specialized AI personas** - Expert perspectives from architecture to QA
-- **Complete workflow automation** - spec → plan → tasks → implement → commit
-- **Enterprise templates** - MuleSoft & JHipster production-ready frameworks
-- **Safety-first design** - Multi-layer protection with Python-based hooks
-- **Comprehensive documentation** - Automatic generation and maintenance
+Claude Buddy is a PAI-native development workflow platform featuring:
+- **Extensible domain system** — Auto-detects project type (React, JHipster, MuleSoft, or custom)
+- **12 specialist personas** — Expert perspectives loaded contextually during workflows
+- **Complete workflow automation** — spec, plan, tasks, implement, commit, docs
+- **Domain-aware templates** — Technology-specific templates for specs, plans, tasks, and docs
+- **TDD-first execution** — Tests before implementation with parallel task support
+- **Custom domain creation** — Interactive wizard for adding new technology domains
 
-## Features
-
-### 12 Expert Personas
-
-**Technical Specialists:**
-- Architect - Systems design & long-term architecture
-- Frontend - UI/UX & accessibility
-- Backend - APIs & reliability engineering
-- Security - Threat modeling & vulnerabilities
-- Performance - Optimization & bottleneck elimination
-
-**Process Experts:**
-- Analyzer - Root cause analysis
-- QA - Testing & quality advocacy
-- Refactorer - Code quality & technical debt
-- DevOps - Infrastructure & deployment
-- PO - Product requirements & strategy
-
-**Knowledge Specialists:**
-- Mentor - Knowledge transfer & education
-- Scribe - Documentation & writing
-
-### Workflow Commands
+## Workflow Commands
 
 | Command | Purpose |
 |---------|---------|
-| `/buddy:persona` | Activate specialized personas |
-| `/buddy:foundation` | Initialize project foundation |
+| `/buddy:foundation` | Initialize project foundation with domain auto-detection |
 | `/buddy:spec` | Create feature specifications |
 | `/buddy:plan` | Generate implementation plans |
-| `/buddy:tasks` | Break down plans into tasks |
-| `/buddy:implement` | Execute tasks with TDD |
+| `/buddy:tasks` | Break down plans into TDD-ordered tasks |
+| `/buddy:implement` | Execute tasks (red-green-refactor) |
 | `/buddy:commit` | Create professional git commits |
 | `/buddy:docs` | Generate comprehensive documentation |
 
-### Enterprise Templates
+## Domain System
 
-- **Default** - General-purpose development
-- **MuleSoft** - API integration platform with RAML, DataWeave, MUnit
-- **JHipster** - Full-stack web applications with Spring Boot & Angular/React/Vue
+Foundation auto-detects the project's technology stack and selects domain-specific templates.
 
-### Safety Features
+### Built-in Domains
 
-- **File Protection** - Blocks modification of sensitive files (.env, credentials, keys)
-- **Command Validation** - Prevents dangerous operations (rm -rf, sudo, format)
-- **Auto-Formatting** - Automatic code formatting after edits
+| Domain | Detected By |
+|--------|-------------|
+| **React** | `package.json` with `react`, `.jsx`/`.tsx` files |
+| **JHipster** | `.yo-rc.json`, Spring Boot + Angular |
+| **MuleSoft** | `.dwl` files, `mule-artifact.json` |
+| **Default** | Fallback for any project type |
+
+### Custom Domains
+
+```bash
+/buddy:foundation create domain
+```
+
+Interactive wizard guides you through creating detection rules, analysis workflows, and templates for any technology stack.
+
+## Persona System
+
+12 specialist personas provide expert perspectives during workflow execution:
+
+| Persona | Expertise | Used During |
+|---------|-----------|-------------|
+| **Architect** | Systems design, scalability | Plan |
+| **Security** | Threat modeling, compliance | Plan, Implementation |
+| **QA** | Testing strategy, quality gates | Tasks, Implementation |
+| **Frontend** | UI/UX, accessibility | Spec, Implementation |
+| **Backend** | APIs, databases, microservices | Plan, Implementation |
+| **DevOps** | CI/CD, infrastructure | Implementation |
+| **Performance** | Optimization, profiling | Plan, Implementation |
+| **Refactorer** | Code quality, technical debt | Implementation |
+| **Analyzer** | Root cause analysis, debugging | Implementation |
+| **Scribe** | Documentation, commit messages | Commit, Docs |
+| **PO** | Requirements, user stories | Spec |
+| **Mentor** | Knowledge transfer | On request |
 
 ## Prerequisites
 
-- **Python**: ≥3.8 ([Download](https://python.org))
-- **uv**: Python package manager ([Install Guide](https://github.com/astral-sh/uv))
 - **Claude Code**: Latest version
-
-### Installing uv
-
-**macOS/Linux:**
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-**Windows:**
-```powershell
-powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-**Via pip:**
-```bash
-pip install uv
-```
+- **Bun**: Required by PAI ([Install](https://bun.sh))
+- **git**: For source control operations
+- **gh** CLI: For pull request creation (optional)
 
 ## Quick Start
 
@@ -105,25 +110,19 @@ pip install uv
 # 1. Add marketplace
 /plugin marketplace add rsts-dev/claude-buddy-marketplace
 
-# 2. Install plugin
+# 2. Install plugins
+/plugin install pai@claude-buddy-marketplace
 /plugin install buddy@claude-buddy-marketplace
 
 # 3. Restart Claude Code
 
-# 4. Test
-/buddy:persona architect - What are REST API design best practices?
-```
+# 4. Set up PAI
+/pai:pai-setup
 
-## Documentation
-
-- [Plugin README](plugins/buddy/README.md) - Complete plugin documentation
-- [Website](https://claude-buddy.dev) - Official documentation and guides
-
-## Usage Example
-
-```bash
-# Complete feature development workflow
+# 5. Initialize project foundation
 /buddy:foundation
+
+# 6. Start building
 /buddy:spec Create a user authentication API with JWT
 /buddy:plan
 /buddy:tasks
@@ -132,22 +131,21 @@ pip install uv
 /buddy:docs
 ```
 
+## Documentation
+
+- [Buddy Plugin](plugins/buddy-v5/README.md) — Skills, domains, personas, workflows
+- [Buddy Architecture](plugins/buddy-v5/docs/architecture.md) — System design and data flow
+- [Domain System](plugins/buddy-v5/docs/domains.md) — Detection, templates, references
+- [PAI Plugin](plugins/pai/README.md) — Installation and configuration
+- [Website](https://claude-buddy.dev) — Official documentation
+
 ## Support
 
-- **GitHub Issues**: [Report bugs](https://github.com/rsts-dev/claude-buddy/issues)
-- **Discussions**: [Ask questions](https://github.com/rsts-dev/claude-buddy/discussions)
+- **GitHub Issues**: [Report bugs](https://github.com/rsts-dev/claude-buddy-marketplace/issues)
 - **Website**: [https://claude-buddy.dev](https://claude-buddy.dev)
-
-## Contributing
-
-We welcome contributions! See our [main repository](https://github.com/rsts-dev/claude-buddy) for contribution guidelines.
 
 ## License
 
 MIT License - see [LICENSE](LICENSE)
 
 Copyright (c) 2025 Claude Buddy Contributors
-
----
-
-**Claude Buddy Marketplace v4.0.0** - Enterprise-Ready AI Development Platform
