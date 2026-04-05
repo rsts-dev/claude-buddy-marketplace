@@ -10,6 +10,10 @@
   "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
   "plugins": [
     {
+      "name": "pai",
+      "source": "./plugins/pai"
+    },
+    {
       "name": "buddy",
       "source": "./plugins/buddy"
     }
