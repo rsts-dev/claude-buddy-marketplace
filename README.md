@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://claude-buddy.dev/">claude-buddy.dev</a>
+  <a href="https://claude-buddy.dev/" target="_blank">claude-buddy.dev</a>
 </p>
 
 Official Claude Code plugin marketplace for Claude Buddy and PAI.
