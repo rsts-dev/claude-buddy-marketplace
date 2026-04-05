@@ -1,6 +1,6 @@
 # Buddy v5 Skills Reference
 
-Complete reference for all 7 skills in the buddy-v5 plugin.
+Complete reference for all 7 skills in the buddy plugin.
 
 ## Overview
 

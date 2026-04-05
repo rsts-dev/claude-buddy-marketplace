@@ -6,9 +6,8 @@ Official Claude Code plugin marketplace for Claude Buddy and PAI.
 
 | Plugin | Command Prefix | Description |
 |--------|---------------|-------------|
-| **[buddy](plugins/buddy-v5/)** | `buddy:*` | Development workflow platform with domains, personas, and TDD |
+| **[buddy](plugins/buddy/)** | `buddy:*` | Development workflow platform with domains, personas, and TDD |
 | **[pai](plugins/pai/)** | `pai:*` | Install and configure Personal AI Infrastructure |
-| **[notifier](plugins/notifier/)** | `notifier:*` | Custom notification system for Claude Code events |
 
 ## Installation
 
@@ -26,9 +25,6 @@ Official Claude Code plugin marketplace for Claude Buddy and PAI.
 
 # PAI infrastructure (required by buddy)
 /plugin install pai@claude-buddy-marketplace
-
-# Optional: notifications
-/plugin install notifier@claude-buddy-marketplace
 ```
 
 ### Restart Claude Code
@@ -133,9 +129,9 @@ Interactive wizard guides you through creating detection rules, analysis workflo
 
 ## Documentation
 
-- [Buddy Plugin](plugins/buddy-v5/README.md) — Skills, domains, personas, workflows
-- [Buddy Architecture](plugins/buddy-v5/docs/architecture.md) — System design and data flow
-- [Domain System](plugins/buddy-v5/docs/domains.md) — Detection, templates, references
+- [Buddy Plugin](plugins/buddy/README.md) — Skills, domains, personas, workflows
+- [Buddy Architecture](plugins/buddy/docs/architecture.md) — System design and data flow
+- [Domain System](plugins/buddy/docs/domains.md) — Detection, templates, references
 - [PAI Plugin](plugins/pai/README.md) — Installation and configuration
 - [Website](https://claude-buddy.dev) — Official documentation
 

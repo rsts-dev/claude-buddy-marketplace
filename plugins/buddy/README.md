@@ -136,7 +136,7 @@ Available customization points:
 ## Plugin Structure
 
 ```
-plugins/buddy-v5/
+plugins/buddy/
 ├── .claude-plugin/plugin.json
 ├── README.md
 ├── commands/                              # 7 thin command wrappers
