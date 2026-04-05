@@ -1,5 +1,7 @@
 # PAI Plugin Architecture
 
+[< Back to PAI README](../README.md) | [All Docs](../../../docs/README.md)
+
 ## System Overview
 
 The PAI plugin automates installation and configuration of Daniel Miessler's Personal AI Infrastructure. It creates a persistent user data store at `~/.buddy/` and symlinks it into the PAI installation at `~/.claude/`, ensuring user customizations survive upgrades.

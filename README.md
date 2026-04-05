@@ -53,45 +53,19 @@ Claude Buddy is a PAI-native development workflow platform featuring:
 | `/buddy:commit` | Create professional git commits |
 | `/buddy:docs` | Generate comprehensive documentation |
 
+See [Commands Reference](plugins/buddy/docs/commands.md) for full usage and arguments.
+
 ## Domain System
 
-Foundation auto-detects the project's technology stack and selects domain-specific templates.
+Foundation auto-detects the project's technology stack (React, JHipster, MuleSoft, or generic default) and selects domain-specific templates. Custom domains can be created via `/buddy:foundation create domain`.
 
-### Built-in Domains
-
-| Domain | Detected By |
-|--------|-------------|
-| **React** | `package.json` with `react`, `.jsx`/`.tsx` files |
-| **JHipster** | `.yo-rc.json`, Spring Boot + Angular |
-| **MuleSoft** | `.dwl` files, `mule-artifact.json` |
-| **Default** | Fallback for any project type |
-
-### Custom Domains
-
-```bash
-/buddy:foundation create domain
-```
-
-Interactive wizard guides you through creating detection rules, analysis workflows, and templates for any technology stack.
+See [Domain System](plugins/buddy/docs/domains.md) for detection rules, scoring, and custom domain creation.
 
 ## Persona System
 
-12 specialist personas provide expert perspectives during workflow execution:
+12 specialist personas (Architect, Security, QA, Frontend, Backend, DevOps, Performance, Refactorer, Analyzer, Scribe, PO, Mentor) provide expert perspectives loaded contextually during workflow execution.
 
-| Persona | Expertise | Used During |
-|---------|-----------|-------------|
-| **Architect** | Systems design, scalability | Plan |
-| **Security** | Threat modeling, compliance | Plan, Implementation |
-| **QA** | Testing strategy, quality gates | Tasks, Implementation |
-| **Frontend** | UI/UX, accessibility | Spec, Implementation |
-| **Backend** | APIs, databases, microservices | Plan, Implementation |
-| **DevOps** | CI/CD, infrastructure | Implementation |
-| **Performance** | Optimization, profiling | Plan, Implementation |
-| **Refactorer** | Code quality, technical debt | Implementation |
-| **Analyzer** | Root cause analysis, debugging | Implementation |
-| **Scribe** | Documentation, commit messages | Commit, Docs |
-| **PO** | Requirements, user stories | Spec |
-| **Mentor** | Knowledge transfer | On request |
+See [Persona System](plugins/buddy/docs/personas.md) for the full directory and workflow mapping.
 
 ## Prerequisites
 
@@ -129,10 +103,28 @@ Interactive wizard guides you through creating detection rules, analysis workflo
 
 ## Documentation
 
-- [Buddy Plugin](plugins/buddy/README.md) — Skills, domains, personas, workflows
-- [Buddy Architecture](plugins/buddy/docs/architecture.md) — System design and data flow
-- [Domain System](plugins/buddy/docs/domains.md) — Detection, templates, references
-- [PAI Plugin](plugins/pai/README.md) — Installation and configuration
+> **[Full Documentation Index](docs/README.md)** — Start here for comprehensive docs.
+
+### Marketplace
+
+- [Architecture](docs/architecture.md) — Plugin model, dependency graph, data flow
+- [Setup Guide](docs/setup.md) — Prerequisites, installation, configuration
+- [API & Extension Points](docs/api-reference.md) — Plugin schema, template format
+- [Troubleshooting](docs/troubleshooting.md) — Common issues, debugging, FAQ
+
+### Buddy Plugin
+
+- [Buddy README](plugins/buddy/README.md) — Overview and quick reference
+- [Architecture](plugins/buddy/docs/architecture.md) — System design, layers, diagrams
+- [Skills](plugins/buddy/docs/skills.md) | [Commands](plugins/buddy/docs/commands.md) | [Domains](plugins/buddy/docs/domains.md) | [Personas](plugins/buddy/docs/personas.md)
+
+### PAI Plugin
+
+- [PAI README](plugins/pai/README.md) — Overview
+- [Architecture](plugins/pai/docs/architecture.md) | [Workflows](plugins/pai/docs/workflows.md)
+
+### External
+
 - [Website](https://claude-buddy.dev) — Official documentation
 
 ## Support

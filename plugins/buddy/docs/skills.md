@@ -1,5 +1,7 @@
 # Buddy v5 Skills Reference
 
+[< Back to Buddy README](../README.md) | [All Docs](../../../docs/README.md)
+
 Complete reference for all 7 skills in the buddy plugin.
 
 ## Overview
@@ -116,8 +118,8 @@ Interactive wizard for creating new domains:
 
 ### Sub-Systems
 
-- **Domains** (`Domains/`): 4 built-in + unlimited user domains. See [domains.md](domains.md).
-- **Personas** (`Personas/`): 12 specialist personas loaded by workflows.
+- **Domains** (`Domains/`): 4 built-in + unlimited user domains. See [Domain System](domains.md).
+- **Personas** (`Personas/`): 12 specialist personas loaded by workflows. See [Persona System](personas.md).
 
 ---
 
@@ -230,13 +232,7 @@ T003     Implement auth module (depends on T002)
 
 ### Phase-Persona Mapping
 
-| Phase | Persona(s) | Rationale |
-|-------|-----------|-----------|
-| Setup | DevOps | Project scaffolding, config, CI setup |
-| Tests | QA | Write failing tests (TDD red) |
-| Core | Frontend / Backend / Architect | By task type |
-| Integration | Backend + Security | Wire components, validate boundaries |
-| Polish | Performance + Refactorer | Optimize and clean up (TDD refactor) |
+See [Persona System > Implementation Phases](personas.md#implementation-phase-persona-detail) for the full mapping.
 
 Resumes from last checkpoint if interrupted.
 

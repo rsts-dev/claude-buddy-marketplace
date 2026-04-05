@@ -1,55 +1,52 @@
 # Claude Buddy Marketplace Documentation
 
-Comprehensive technical documentation for the Claude Buddy Marketplace and its plugins.
+[< Back to Marketplace README](../README.md)
 
-## Table of Contents
+## Marketplace Docs
 
-### Marketplace
+General documentation covering the marketplace as a whole:
 
-- [Architecture](architecture.md) — System design, plugin model, data flow
-- [Setup Guide](setup.md) — Installation, prerequisites, quick start
-- [Deployment](deployment.md) — Publishing, distribution, versioning
+- [Architecture](architecture.md) — Marketplace plugin model, dependency graph, data flow
+- [Setup Guide](setup.md) — Prerequisites, installation, configuration
+- [Deployment](deployment.md) — Publishing, versioning, contributing new plugins
+- [API & Extension Points](api-reference.md) — Plugin JSON schema, template format, domain creation
+- [Troubleshooting](troubleshooting.md) — Common issues, debugging, FAQ
+
+## Plugin Documentation
+
+Detailed documentation lives inside each plugin's `docs/` folder:
 
 ### Buddy Plugin
 
-- [Buddy Overview](buddy-overview.md) — Skills, domains, personas, workflow lifecycle
-- [Buddy Skills Reference](buddy-skills.md) — All 7 skills with workflows, templates, personas
-- [Buddy Domain System](buddy-domains.md) — Detection, templates, references, custom domains
-- [Buddy Persona System](buddy-personas.md) — 12 specialists, activation, collaboration
+> [Plugin README](../plugins/buddy/README.md) | [Full Docs](../plugins/buddy/docs/)
+
+- [Architecture](../plugins/buddy/docs/architecture.md) — System design, layers, mermaid diagrams
+- [Skills Reference](../plugins/buddy/docs/skills.md) — All 7 skills with workflows and personas
+- [Commands Reference](../plugins/buddy/docs/commands.md) — Usage, arguments, examples for all commands
+- [Domain System](../plugins/buddy/docs/domains.md) — Detection, templates, references, custom domains
+- [Persona System](../plugins/buddy/docs/personas.md) — 12 specialists, activation mapping, format
 
 ### PAI Plugin
 
-- [PAI Overview](pai-overview.md) — Installation, upgrade, identity customization
-- [PAI Workflows](pai-workflows.md) — Install, upgrade, customize, verify workflows
+> [Plugin README](../plugins/pai/README.md) | [Full Docs](../plugins/pai/docs/)
 
-### Reference
-
-- [Troubleshooting](troubleshooting.md) — Common issues, debugging, FAQ
-- [API & Extension Points](api-reference.md) — Plugin JSON schema, template format, domain creation
+- [Architecture](../plugins/pai/docs/architecture.md) — File system layout, symlink strategy, design
+- [Workflows](../plugins/pai/docs/workflows.md) — Install, upgrade, customize, verify workflows
 
 ## Quick Start
 
 ```bash
-# 1. Add marketplace to Claude Code
+# 1. Add marketplace
 /plugin marketplace add rsts-dev/claude-buddy-marketplace
 
-# 2. Install both plugins
+# 2. Install plugins
 /plugin install pai@claude-buddy-marketplace
 /plugin install buddy@claude-buddy-marketplace
 
-# 3. Restart Claude Code
-
-# 4. Set up PAI infrastructure
-/pai:setup
-
-# 5. Initialize your project
-/buddy:foundation
-
-# 6. Start the development workflow
-/buddy:spec Create a user authentication API with JWT
-/buddy:plan
-/buddy:tasks
-/buddy:implement
-/buddy:commit
-/buddy:docs
+# 3. Restart Claude Code, then:
+/pai:setup              # Set up PAI infrastructure
+/buddy:foundation       # Initialize project foundation
+/buddy:spec {feature}   # Start building
 ```
+
+For the full setup walkthrough, see the [Setup Guide](setup.md).

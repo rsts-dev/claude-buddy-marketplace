@@ -1,5 +1,7 @@
 # Buddy v5 Architecture
 
+[< Back to Buddy README](../README.md) | [All Docs](../../../docs/README.md)
+
 ## Design Principles
 
 1. **PAI-Native**: Depends on PAI infrastructure for execution, customization, and agent orchestration

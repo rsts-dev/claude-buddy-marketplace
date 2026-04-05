@@ -1,5 +1,7 @@
 # Deployment & Distribution
 
+[< Back to Docs](README.md)
+
 ## Publishing the Marketplace
 
 The marketplace is a Git repository. Distribution happens through GitHub:
@@ -119,20 +121,4 @@ plugins/{name}/
             └── {Workflow}.md    # At least one workflow
 ```
 
-**plugin.json schema:**
-
-```json
-{
-  "name": "string (required)",
-  "version": "string (required, semver)",
-  "description": "string (required)",
-  "author": {
-    "name": "string",
-    "url": "string"
-  },
-  "license": "string",
-  "homepage": "string",
-  "repository": "string",
-  "keywords": ["string"]
-}
-```
+See [API & Extension Points](api-reference.md) for the full `plugin.json` schema and all extension formats.

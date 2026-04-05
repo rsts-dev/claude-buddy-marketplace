@@ -1,5 +1,7 @@
 # PAI Plugin Workflows Reference
 
+[< Back to PAI README](../README.md) | [All Docs](../../../docs/README.md)
+
 Complete reference for all workflows in the PAI Setup skill.
 
 ## Overview

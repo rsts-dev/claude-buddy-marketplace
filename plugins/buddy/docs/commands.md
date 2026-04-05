@@ -1,5 +1,7 @@
 # Buddy v5 Commands Reference
 
+[< Back to Buddy README](../README.md) | [All Docs](../../../docs/README.md)
+
 All 7 commands are thin wrappers that route to their corresponding skill. Each command file lives in `commands/` and delegates to a `SKILL.md` in `skills/`.
 
 ## Command List
@@ -169,3 +171,9 @@ graph LR
 ```
 
 Each step builds on the previous one's output. Steps 2-6 can be repeated for each feature. SourceControl and Docs can run independently after Foundation.
+
+## Related
+
+- [Skills Reference](skills.md) -- Detailed workflow steps for each skill
+- [Domain System](domains.md) -- How templates are selected per command
+- [Persona System](personas.md) -- Which personas activate per command

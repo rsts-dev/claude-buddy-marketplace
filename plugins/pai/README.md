@@ -1,5 +1,7 @@
 # PAI Setup Plugin
 
+[< Back to Marketplace](../../README.md) | [Marketplace Docs](../../docs/README.md)
+
 Install and configure [Daniel Miessler's Personal AI Infrastructure (PAI)](https://github.com/danielmiessler/Personal_AI_Infrastructure) with guided identity customization and persistent user data.
 
 ## What It Does
@@ -49,50 +51,11 @@ or
 /pai:setup verify
 ```
 
-## Architecture
+## Documentation
 
-```
-~/.buddy/                              # Persistent (survives upgrades)
-├── .pai-version
-├── MEMORY/
-└── PAI-USER/
-    ├── ABOUTME.md
-    ├── AISTEERINGRULES.md
-    ├── OPINIONS.md
-    ├── DAIDENTITY.md
-    ├── WRITINGSTYLE.md
-    └── {subdirectories}/
-
-~/.claude/                             # PAI installation
-├── MEMORY -> ~/.buddy/MEMORY          # Symlink
-├── PAI/USER -> ~/.buddy/PAI-USER      # Symlink
-└── {full PAI release}
-```
-
-## Plugin Structure
-
-```
-plugins/pai/
-├── .claude-plugin/plugin.json
-├── commands/setup.md
-├── skills/PAISetup/
-│   ├── SKILL.md
-│   └── Workflows/
-│       ├── InstallPAI.md
-│       ├── UpgradePAI.md
-│       ├── CustomizeIdentity.md
-│       ├── CustomizeAboutMe.md
-│       ├── CustomizeAISteeringRules.md
-│       ├── CustomizeOpinions.md
-│       ├── CustomizeDAIdentity.md
-│       ├── CustomizeWritingStyle.md
-│       ├── CustomizeSubdirectories.md
-│       └── VerifyInstallation.md
-└── README.md
-```
+- [Architecture](docs/architecture.md) -- File system layout, symlink strategy, design decisions
+- [Workflows](docs/workflows.md) -- Install, upgrade, customize, verify workflow details
 
 ## Source Repository
 
-[Personal_AI_Infrastructure](https://github.com/danielmiessler/Personal_AI_Infrastructure) by Daniel Miessler
-
-Releases are in the `Releases/` folder, versioned as `v{major}.{minor}.{patch}`.
+[Personal_AI_Infrastructure](https://github.com/danielmiessler/Personal_AI_Infrastructure) by Daniel Miessler. Releases are versioned as `v{major}.{minor}.{patch}`.

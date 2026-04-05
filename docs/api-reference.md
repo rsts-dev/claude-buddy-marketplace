@@ -1,6 +1,12 @@
 # API & Extension Points
 
+[< Back to Docs](README.md)
+
 Reference for the schemas, formats, and extension mechanisms in the Claude Buddy Marketplace.
+
+For domain-specific formats, see:
+- [Domain System](../plugins/buddy/docs/domains.md) -- detection rules, templates, references
+- [Persona System](../plugins/buddy/docs/personas.md) -- persona definition format
 
 ## Plugin JSON Schema
 

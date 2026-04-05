@@ -1,5 +1,7 @@
 # Troubleshooting
 
+[< Back to Docs](README.md)
+
 ## Common Issues
 
 ### PAI Installation
@@ -68,7 +70,7 @@ Most buddy skills require `/directive/foundation.md`. Create it:
 
 #### Domain not detected correctly
 
-Check detection manually by looking at your project files against the domain detection rules:
+Check detection manually against [domain detection rules](../plugins/buddy/docs/domains.md#built-in-domains):
 
 | Domain | Key files |
 |--------|-----------|
@@ -92,7 +94,7 @@ If multiple matches exist, pass an identifier: `/buddy:plan user-auth`
 
 #### Custom domain not detected
 
-User domains must be in:
+See [Creating Custom Domains](../plugins/buddy/docs/domains.md#creating-custom-domains). User domains must be in:
 ```
 ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/
 ```
@@ -141,6 +143,8 @@ Verify the file exists and the skill name matches exactly (case-sensitive).
 ## Debugging
 
 ### Check PAI installation status
+
+See [PAI Workflows > VerifyInstallation](../plugins/pai/docs/workflows.md#verifyinstallation).
 
 ```
 /pai:setup verify

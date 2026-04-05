@@ -1,5 +1,7 @@
 # Buddy v5 Domain System
 
+[< Back to Buddy README](../README.md) | [All Docs](../../../docs/README.md)
+
 The domain system provides technology-specific knowledge, templates, detection rules, and analysis workflows for different project types. Domains are self-contained and auto-discovered.
 
 ## Overview

@@ -1,5 +1,7 @@
 # Claude Buddy v5 — PAI-Native Development Platform
 
+[< Back to Marketplace](../../README.md) | [Marketplace Docs](../../docs/README.md)
+
 PAI-native rewrite of Claude Buddy with 7 focused skills, extensible domain architecture, and integrated persona system covering the complete development lifecycle from specification to deployment.
 
 ## Prerequisites
@@ -40,81 +42,23 @@ PAI-native rewrite of Claude Buddy with 7 focused skills, extensible domain arch
 
 ## Domain System
 
-Foundation auto-detects the project's technology stack and selects domain-specific templates, analysis workflows, and reference materials. Domains are self-contained and auto-discovered.
+Foundation auto-detects the project's technology stack (React, JHipster, MuleSoft, or generic default) and selects domain-specific templates, analysis workflows, and reference materials.
 
-### Built-in Domains
+Custom domains can be created via `/buddy:foundation create domain`.
 
-| Domain | Type Key | Detection |
-|--------|----------|-----------|
-| **Default** | `default` | Fallback for any project type |
-| **React** | `react` | `.jsx`/`.tsx` files, `package.json` with `react` |
-| **JHipster** | `jhipster` | `.yo-rc.json`, Spring Boot + Angular |
-| **MuleSoft** | `mulesoft` | `.dwl` files, `mule-artifact.json`, Mule Maven plugin |
-
-### Creating Custom Domains
-
-```
-/buddy:foundation create domain
-```
-
-Interactive wizard generates all required files and stores them in:
-```
-~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/
-```
-
-### Domain Directory Structure
-
-```
-Domains/{domain-name}/
-  profile.md          # Identity, dependencies, keywords, reference index
-  detect.md           # Detection rules with confidence scoring
-  analyze.md          # Deep analysis workflow fragment
-  Templates/          # Spec.md, Plan.md, Tasks.md, Docs.md
-  Reference/          # Large reference materials (loaded on-demand)
-```
-
-### Template Resolution Order
-
-1. User domain template (`~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{type}/`)
-2. Built-in domain template (`skills/Foundation/Domains/{type}/`)
-3. Skill default template (fallback)
+See [Domain System docs](docs/domains.md) for detection rules, scoring, template resolution, and custom domain creation.
 
 ## Persona System
 
-12 specialized personas provide expert perspectives during workflow execution. Personas are loaded on-demand based on workflow context.
+12 specialized personas provide expert perspectives during workflow execution, loaded on-demand based on workflow context.
 
-| Persona | Role | Used By |
-|---------|------|---------|
-| **Architect** | Systems design, scalability, patterns | Plan |
-| **Security** | Threat modeling, compliance, vulnerabilities | Plan, Implementation |
-| **QA** | Testing strategy, quality gates, coverage | Tasks, Implementation |
-| **Frontend** | UI/UX, accessibility, responsive design | Spec, Implementation |
-| **Backend** | APIs, databases, microservices | Plan, Implementation |
-| **DevOps** | CI/CD, infrastructure, deployment | Plan, Implementation |
-| **Performance** | Optimization, profiling, bottlenecks | Plan, Implementation |
-| **Refactorer** | Code quality, technical debt, clean code | Implementation |
-| **Analyzer** | Root cause analysis, debugging, diagnostics | Implementation |
-| **Mentor** | Knowledge transfer, explanations, tutorials | — (on request) |
-| **Scribe** | Documentation, commit messages, changelogs | Commit, Docs |
-| **PO** | Product requirements, user stories, acceptance criteria | Spec |
-
-Personas live in `skills/Foundation/Personas/{name}/persona.md` and are activated contextually by workflows.
+See [Persona System docs](docs/personas.md) for the full directory, workflow mapping, and definition format.
 
 ## Customization
 
-Each skill checks for user customizations at:
-```
-~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/{SkillName}/PREFERENCES.md
-```
+Each skill checks for user customizations at `~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/{SkillName}/PREFERENCES.md`.
 
-Available customization points:
-- `SourceControl/` — commit templates, branch naming, protected branches
-- `Foundation/` — principle templates, governance rules, custom domains
-- `Spec/` — specification preferences, domain-specific requirements
-- `Plan/` — planning style, phase definitions
-- `Tasks/` — task granularity, parallel execution preferences
-- `Implementation/` — execution preferences, checkpoint behavior
-- `Docs/` — documentation style, sections to include/exclude
+See [Setup Guide > Configuration](../../docs/setup.md#configuration) for available customization points.
 
 ## Migration from v4
 
@@ -191,3 +135,11 @@ plugins/buddy/
         ├── Templates/ (1 fallback)
         └── Workflows/ (1)
 ```
+
+## Documentation
+
+- [Architecture](docs/architecture.md) -- System design, layers, data flow diagrams
+- [Skills Reference](docs/skills.md) -- All 7 skills with workflows and persona loading
+- [Commands Reference](docs/commands.md) -- Usage, arguments, examples for all commands
+- [Domain System](docs/domains.md) -- Detection, templates, references, custom domains
+- [Persona System](docs/personas.md) -- 12 specialists, activation mapping, definition format
