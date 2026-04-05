@@ -1,5 +1,9 @@
 # Claude Buddy Marketplace
 
+<p align="center">
+  <img src="https://claude-buddy.dev/_astro/cb-image-light.CY6C2M94.jpg" alt="Claude Buddy" width="200" />
+</p>
+
 Official Claude Code plugin marketplace for Claude Buddy and PAI.
 
 ## Plugins
