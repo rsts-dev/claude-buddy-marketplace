@@ -154,7 +154,7 @@ ln -s ~/.buddy/PAI-USER ~/.claude/PAI/USER
 #### Step 11: Run PAI Installer
 
 ```bash
-cd ~/.claude && bash install.sh
+cd ~/.claude && bun run PAI-Install/main.ts --mode cli
 ```
 
 #### Step 12: Rebuild CLAUDE.md

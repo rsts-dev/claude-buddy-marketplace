@@ -173,7 +173,7 @@ mkdir -p ~/.claude/tasks
 
 2. Run the installer:
 ```bash
-cd ~/.claude && bash install.sh
+cd ~/.claude && bun run PAI-Install/main.ts --mode cli
 ```
 
 3. If installer fails, report the error but continue — the core files are already in place.

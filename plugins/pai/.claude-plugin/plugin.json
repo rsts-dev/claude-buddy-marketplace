@@ -1,6 +1,6 @@
 {
   "name": "pai",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Install and configure Daniel Miessler's Personal AI Infrastructure (PAI) with guided identity customization, symlinked user data, and upgrade support",
   "author": {
     "name": "Claude Buddy Contributors",
