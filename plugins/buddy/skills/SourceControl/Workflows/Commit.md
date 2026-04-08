@@ -51,8 +51,9 @@ If on main/master/staging: Warn "On protected branch. Consider creating a featur
 
 Based on mode:
 - **Auto-yes**: Stage automatically: `git add .`
-- **Default**: "Stage all changes? (Y/n)" — Enter accepts
-- **Interactive**: "Stage all changes? (y/n)" — requires explicit yes
+- **Default/Interactive**: Use AskUserQuestion to confirm staging:
+  - Question: "Stage all changes?"
+  - Options: "Yes — stage all changes (Recommended)", "No — cancel"
 
 Show staged changes summary:
 ```bash
@@ -97,10 +98,9 @@ If TICKET_REF provided, prepend: `SDO-123: feat(auth): add JWT validation`
 
 Based on mode:
 - **Auto-yes**: Proceed automatically
-- **Default**: "Proceed with commit: '{message}'? (Y/n/e)" — Enter for yes, 'e' to edit
-- **Interactive**: "Proceed with commit: '{message}'? (y/n/e)" — requires explicit choice
-
-If 'e' (edit): Ask user for corrections, regenerate message.
+- **Default/Interactive**: Use AskUserQuestion to confirm the commit message:
+  - Question: "Proceed with commit message?"
+  - Options: "Yes (Recommended)" with description showing the commit message, "Edit" to provide a different message
 
 ### Step 7: Create Commit
 
@@ -121,8 +121,9 @@ git rev-parse --abbrev-ref @{upstream} 2>/dev/null
 
 2. Based on mode:
    - **Auto-yes**: Push automatically
-   - **Default**: "Push to origin/{branch}? (Y/n)"
-   - **Interactive**: "Push to origin/{branch}? (y/n)"
+   - **Default/Interactive**: Use AskUserQuestion to confirm push:
+     - Question: "Push to origin/{branch}?"
+     - Options: "Yes — push now (Recommended)", "No — skip push"
 
 3. Execute:
    - If tracking exists: `git push origin {branch}`

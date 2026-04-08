@@ -43,9 +43,9 @@ Complete reference for all 7 skills in the buddy plugin.
 
 | Mode | Flag | Behavior |
 |------|------|----------|
-| Default | (none) | Y/n prompts (Enter accepts) |
+| Default | (none) | Uses AskUserQuestion for confirmations |
 | Auto-yes | `--yes` / `-y` | Non-interactive, no prompts |
-| Interactive | `--interactive` / `-i` | Requires explicit "y" |
+| Interactive | `--interactive` / `-i` | Uses AskUserQuestion for all decisions |
 
 **Example**: `/buddy:commit SDO-456 --yes`
 

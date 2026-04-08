@@ -44,7 +44,7 @@ The skill reads configuration from `.claude/hooks.json` (config section) when av
 ```
 User: "/buddy:commit"
 -> Detects changes, stages, generates conventional commit message
--> Prompts for confirmation (default mode: Y/n/e)
+-> Uses AskUserQuestion for confirmation
 -> Creates commit, offers to push
 ```
 

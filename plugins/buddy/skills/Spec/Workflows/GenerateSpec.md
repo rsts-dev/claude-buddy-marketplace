@@ -62,8 +62,7 @@ Apply the PO persona perspective while transforming the feature description into
 1. Scan for `[NEEDS CLARIFICATION: ...]` markers
 2. If found:
    - Compile into numbered question list
-   - Present to user
-   - Wait for responses
+   - Use AskUserQuestion to present each clarification question to the user with relevant options where applicable
    - Update specification with answers, remove markers
    - Update status: Draft -> Ready for Review
 3. If none: proceed to Step 6

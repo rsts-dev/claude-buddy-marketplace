@@ -24,7 +24,7 @@ PERSONAS_DIR: skills/Foundation/Personas/
 1. Scan `specs/` for folders with `plan.md` but no `tasks.md`
 2. If none: "No plans need task breakdown. Run `/buddy:plan` first." Exit.
 3. If one: proceed
-4. If multiple: ask user
+4. If multiple: Use AskUserQuestion to let user select which plan to generate tasks for — list each folder as an option
 5. If user provided identifier: locate matching folder
 
 ### Step 3: Load ALL Design Documents
@@ -90,7 +90,7 @@ Apply the QA persona perspective to create TDD-ordered tasks by category:
 
 ### Step 8: Clarification Cycle
 
-Scan for `[NEEDS CLARIFICATION]` markers, resolve with user.
+Scan for `[NEEDS CLARIFICATION]` markers. If found, compile into questions and use AskUserQuestion to present them to the user. Update tasks with responses and remove markers.
 
 ### Step 9: Quality Assurance
 

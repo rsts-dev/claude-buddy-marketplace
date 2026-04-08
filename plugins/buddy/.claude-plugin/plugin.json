@@ -1,6 +1,6 @@
 {
   "name": "buddy",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "description": "PAI-native development workflow platform with 7 skills, extensible domain system, and 12 specialist personas covering the complete lifecycle from specification to deployment. Requires PAI (pai plugin).",
   "author": {
     "name": "Claude Buddy Contributors",

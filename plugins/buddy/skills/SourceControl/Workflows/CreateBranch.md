@@ -22,7 +22,9 @@ git branch --show-current
 **Decision logic:**
 - On main/staging/master -> create new branch
 - On matching feature branch -> proceed (already on it)
-- On different feature branch -> ask user before switching
+- On different feature branch -> Use AskUserQuestion before switching:
+  - Question: "You're currently on branch '{current-branch}'. Switch to create '{new-branch}'?"
+  - Options: "Yes — switch and create branch", "No — stay on current branch"
 
 ### Step 3: Check for Uncommitted Changes
 
@@ -30,7 +32,9 @@ git branch --show-current
 git status --porcelain
 ```
 
-If uncommitted changes exist: Warn user and suggest committing or stashing first.
+If uncommitted changes exist: Use AskUserQuestion to warn and offer options:
+- Question: "You have uncommitted changes. How would you like to proceed?"
+- Options: "Stash changes — stash and continue", "Commit first — commit before switching", "Cancel — abort branch creation"
 
 ### Step 4: Create Branch
 

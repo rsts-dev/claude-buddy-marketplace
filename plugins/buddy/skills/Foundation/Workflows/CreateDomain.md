@@ -31,7 +31,9 @@ Validate the domain name:
   ls -d skills/Foundation/Domains/*/ 2>/dev/null
   ls -d ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/*/ 2>/dev/null
   ```
-- If conflict: inform user and ask for a different name
+- If conflict: Use AskUserQuestion to inform user of the conflict and ask for a different name:
+  - Question: "The domain name '{name}' conflicts with an existing domain. Please choose a different name."
+  - Allow free-text input via the "Other" option
 
 ### Step 2: Analyze Technology Stack
 

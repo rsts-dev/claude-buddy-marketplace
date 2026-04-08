@@ -24,7 +24,7 @@ PERSONAS_DIR: skills/Foundation/Personas/
 1. Scan `specs/` for folders containing `tasks.md`
 2. If none: "No tasks found. Run `/buddy:tasks` first." Exit.
 3. If one: proceed
-4. If multiple: ask user
+4. If multiple: Use AskUserQuestion to let user select which task set to execute — list each folder as an option
 5. If user provided identifier: locate matching folder
 
 ### Step 3: Load ALL Design Documents
@@ -111,7 +111,7 @@ Only load the most relevant 1-2 personas per phase to avoid context bloat. The p
 
 ### Step 7: Error Handling
 
-- **Sequential task failure**: HALT immediately, report error, suggest fix, ask how to proceed
+- **Sequential task failure**: HALT immediately, report error, suggest fix, use AskUserQuestion to ask how to proceed with options: "Fix and retry", "Skip this task", "Abort implementation"
 - **Parallel task [P] failure**: Continue other parallel tasks, collect all failures, report together
 - **Test failures in Phase 3.2**: Expected (TDD red) — continue
 - **Test failures after Phase 3.3**: Unexpected — investigate, report, halt

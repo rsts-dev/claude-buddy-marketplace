@@ -24,7 +24,7 @@ PERSONAS_DIR: skills/Foundation/Personas/
 1. Scan `specs/` for folders with `spec.md` but no `plan.md`
 2. If none: "No specs need planning. Run `/buddy:spec` first." Exit.
 3. If one: proceed with that folder
-4. If multiple: list them and ask user which to plan
+4. If multiple: Use AskUserQuestion to let user select which spec to plan — list each folder as an option with its feature description
 5. If user provided identifier in arguments: locate matching folder
 
 ### Step 3: Load Specification
@@ -76,7 +76,7 @@ Apply the Architect persona perspective while transforming the specification int
 
 ### Step 7: Clarification Cycle
 
-Same pattern as GenerateSpec: scan markers, present questions, update, change status.
+Scan for `[NEEDS CLARIFICATION: ...]` markers. If found, compile into numbered questions and use AskUserQuestion to present them to the user. Update the plan with responses and remove markers. Change status from Draft to Ready for Review.
 
 ### Step 8: Quality Assurance
 
