@@ -1,13 +1,13 @@
 # Claude Buddy Marketplace
 
 <p align="center">
-  <a href="https://claude-buddy.dev/">
-    <img src="https://claude-buddy.dev/_astro/cb-image-light.CY6C2M94.jpg" alt="Claude Buddy" width="200" />
+  <a href="https://buddy.rsts.dev/">
+    <img src="https://buddy.rsts.dev/_astro/cb-image-light.CY6C2M94.jpg" alt="Claude Buddy" width="200" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://claude-buddy.dev/" target="_blank">claude-buddy.dev</a>
+  <a href="https://buddy.rsts.dev/" target="_blank">buddy.rsts.dev</a>
 </p>
 
 Official Claude Code plugin marketplace for Claude Buddy and PAI.
@@ -135,12 +135,12 @@ See [Persona System](plugins/buddy/docs/personas.md) for the full directory and 
 
 ### External
 
-- [Website](https://claude-buddy.dev) — Official documentation
+- [Website](https://buddy.rsts.dev) — Official documentation
 
 ## Support
 
 - **GitHub Issues**: [Report bugs](https://github.com/rsts-dev/claude-buddy-marketplace/issues)
-- **Website**: [https://claude-buddy.dev](https://claude-buddy.dev)
+- **Website**: [https://buddy.rsts.dev](https://buddy.rsts.dev)
 
 ## License
 
