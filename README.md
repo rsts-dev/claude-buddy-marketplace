@@ -18,6 +18,7 @@ Official Claude Code plugin marketplace for Claude Buddy and PAI.
 |--------|---------------|-------------|
 | **[buddy](plugins/buddy/)** | `buddy:*` | Development workflow platform with domains, personas, and TDD |
 | **[pai](plugins/pai/)** | `pai:*` | Install and configure Personal AI Infrastructure |
+| **[hermes-tweet](plugins/hermes-tweet/)** | `tweet_*` | Hermes Agent X/Twitter research, reads, and gated actions via Xquik |
 
 ## Installation
 
@@ -35,6 +36,9 @@ Official Claude Code plugin marketplace for Claude Buddy and PAI.
 
 # PAI infrastructure (required by buddy)
 /plugin install pai@claude-buddy-marketplace
+
+# Hermes Tweet X/Twitter plugin
+/plugin install hermes-tweet@claude-buddy-marketplace
 ```
 
 ### Restart Claude Code
