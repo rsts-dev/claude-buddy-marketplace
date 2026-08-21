@@ -72,6 +72,16 @@ graph TB
 - **Dependencies**: Salesforce CLI (`sf`), Node 18+
 - **Location**: `skills/Foundation/Domains/salesforce/`
 
+### springboot (priority: 60)
+- **Type key**: `springboot`
+- **Detection**: `pom.xml` with `spring-boot-starter-parent`/`org.springframework.boot` (90 pts), `build.gradle` with `org.springframework.boot` (90 pts), `@SpringBootApplication` class (90 pts)
+- **Use case**: Plain Spring Boot backends (REST APIs, microservices, MVC/WebFlux) — **not** JHipster apps
+- **Reference materials**: `README.md` (index) — scaffolding deferred to Dr JSkill
+- **Official skills**: the Dr JSkill Spring Boot generator (`jdubois/dr-jskill`) installs via `/setup:springboot`
+- **Dependencies**: JDK 17+ (21 recommended), Maven 3.8+ or Gradle 8+
+- **Location**: `skills/Foundation/Domains/springboot/`
+- **Note**: priority 60 < jhipster's 70, so JHipster repos (which also use Spring Boot) still resolve to `jhipster`; `springboot` matches non-JHipster Spring Boot projects.
+
 ## Domain File Structure
 
 Each domain requires these files:
@@ -161,6 +171,14 @@ Total: 90 -> jhipster domain selected
 sfdx-project.json exists    -> HIGH (90)
 force-app/main/default/ dir -> HIGH (90)
 Total: 180 -> salesforce domain selected
+```
+
+**Spring Boot project** (has `pom.xml` with `spring-boot-starter-parent`, no `.yo-rc.json`):
+```
+pom.xml contains spring-boot-starter-parent -> HIGH (90)
+@SpringBootApplication class                -> HIGH (90)
+Total: 180 -> springboot domain selected
+(a JHipster repo would also match jhipster at 90+; priority 70 > 60 breaks the tie for jhipster)
 ```
 
 **Generic Python project** (has `requirements.txt`):

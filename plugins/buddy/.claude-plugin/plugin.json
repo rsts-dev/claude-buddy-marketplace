@@ -1,6 +1,6 @@
 {
   "name": "buddy",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "LifeOS-native development workflow platform with 7 skills, extensible domain system, and 12 specialist personas covering the complete lifecycle from specification to deployment. Requires LifeOS (install via the setup plugin: /setup:lifeos).",
   "author": {
     "name": "Claude Buddy Contributors",
