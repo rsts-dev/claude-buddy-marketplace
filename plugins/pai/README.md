@@ -2,6 +2,8 @@
 
 [< Back to Marketplace](../../README.md) | [Marketplace Docs](../../docs/README.md)
 
+> **⚠ Deprecated — superseded by [LifeOS](../setup/).** PAI has been renamed and evolved into LifeOS (the Life Operating System) upstream. New users should install the [`setup`](../setup/) plugin instead (`/plugin install setup@claude-buddy-marketplace`) and run `/setup:lifeos`. This `pai` plugin remains installable for existing PAI installs and the `buddy` plugin's dependency, but is no longer the recommended entry point.
+
 Install and configure [Daniel Miessler's Personal AI Infrastructure (PAI)](https://github.com/danielmiessler/Personal_AI_Infrastructure) with guided identity customization and persistent user data.
 
 ## What It Does

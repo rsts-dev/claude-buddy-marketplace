@@ -5,7 +5,7 @@ Interactive wizard that guides the user through creating a new technology domain
 ## Variables
 
 ```
-USER_DOMAINS_DIR: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/
+USER_DOMAINS_DIR: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/
 BUILTIN_DOMAINS_DIR: skills/Foundation/Domains/
 TEMPLATE_DIR: skills/Foundation/Domains/_domain-template/
 DEFAULT_DOMAIN_DIR: skills/Foundation/Domains/default/
@@ -29,7 +29,7 @@ Validate the domain name:
 - Must NOT conflict with existing built-in domains. Check:
   ```bash
   ls -d skills/Foundation/Domains/*/ 2>/dev/null
-  ls -d ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/*/ 2>/dev/null
+  ls -d ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/*/ 2>/dev/null
   ```
 - If conflict: Use AskUserQuestion to inform user of the conflict and ask for a different name:
   - Question: "The domain name '{name}' conflicts with an existing domain. Please choose a different name."
@@ -224,7 +224,7 @@ If no:
 
 ### Step 8: Create EXTEND.yaml
 
-Generate the SKILLCUSTOMIZATIONS manifest:
+Generate the customization manifest:
 
 ```yaml
 # EXTEND.yaml - Foundation Domain Extension
@@ -248,26 +248,26 @@ description: "Custom {Domain Name} domain for Foundation skill"
 Create the directory structure and write all files:
 
 ```bash
-mkdir -p ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/{Templates,Reference}
+mkdir -p ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/{Templates,Reference}
 ```
 
 Write files:
-1. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/profile.md`
-2. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/detect.md`
-3. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/analyze.md`
-4. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/Templates/Spec.md`
-5. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/Templates/Plan.md`
-6. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/Templates/Tasks.md`
-7. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/Templates/Docs.md`
-8. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/Reference/README.md`
-9. `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/EXTEND.yaml` (create or update — append new domain)
+1. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/profile.md`
+2. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/detect.md`
+3. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/analyze.md`
+4. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/Templates/Spec.md`
+5. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/Templates/Plan.md`
+6. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/Templates/Tasks.md`
+7. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/Templates/Docs.md`
+8. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/Reference/README.md`
+9. `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/EXTEND.yaml` (create or update — append new domain)
 
 ### Step 10: Report
 
 ```
 ## Domain Created: {Domain Name}
 
-- Location: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/
+- Location: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/
 - Type Key: {domain-name}
 - Files created:
   - profile.md — Domain identity and metadata

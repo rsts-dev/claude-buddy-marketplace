@@ -1,12 +1,12 @@
-# Claude Buddy v5 — PAI-Native Development Platform
+# Claude Buddy v5 — LifeOS-Native Development Platform
 
 [< Back to Marketplace](../../README.md) | [Marketplace Docs](../../docs/README.md)
 
-PAI-native rewrite of Claude Buddy with 7 focused skills, extensible domain architecture, and integrated persona system covering the complete development lifecycle from specification to deployment.
+LifeOS-native rewrite of Claude Buddy with 7 focused skills, extensible domain architecture, and integrated persona system covering the complete development lifecycle from specification to deployment.
 
 ## Prerequisites
 
-- **PAI** must be installed via the [pai plugin](../pai/README.md)
+- **LifeOS** must be installed via the [setup plugin](../setup/README.md) — run `/setup:lifeos`
 - **git** for source control operations
 - **gh** CLI for pull request creation (optional)
 
@@ -56,7 +56,7 @@ See [Persona System docs](docs/personas.md) for the full directory, workflow map
 
 ## Customization
 
-Each skill checks for user customizations at `~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/{SkillName}/PREFERENCES.md`.
+Each skill checks for user customizations at `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/{SkillName}/PREFERENCES.md`.
 
 See [Setup Guide > Configuration](../../docs/setup.md#configuration) for available customization points.
 

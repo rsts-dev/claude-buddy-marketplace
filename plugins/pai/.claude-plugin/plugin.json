@@ -1,7 +1,7 @@
 {
   "name": "pai",
-  "version": "1.1.0",
-  "description": "Install and configure Daniel Miessler's Personal AI Infrastructure (PAI) with guided identity customization, symlinked user data, and upgrade support",
+  "version": "1.1.1",
+  "description": "[DEPRECATED — superseded by the lifeos plugin] Install and configure Daniel Miessler's Personal AI Infrastructure (PAI) with guided identity customization, symlinked user data, and upgrade support. PAI has evolved into LifeOS; new users should install the lifeos plugin. This remains for existing PAI installs and the buddy dependency.",
   "author": {
     "name": "Claude Buddy Contributors",
     "url": "https://github.com/rsts-dev/claude-buddy-marketplace"

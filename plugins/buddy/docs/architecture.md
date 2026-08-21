@@ -4,7 +4,7 @@
 
 ## Design Principles
 
-1. **PAI-Native**: Depends on PAI infrastructure for execution, customization, and agent orchestration
+1. **LifeOS-Native**: Depends on LifeOS for execution, customization, and agent orchestration
 2. **Skill-per-Feature**: Each development lifecycle stage is a single, focused skill
 3. **Workflow-Driven**: Heavy logic lives in Workflow files, not skill definitions
 4. **Domain-Extensible**: Technology-specific knowledge is modular and auto-discovered
@@ -144,7 +144,7 @@ docs/                                 <- Docs skill generates
 
 ```mermaid
 flowchart TD
-    Start["Foundation Type<br/>extracted from /directive/foundation.md"] --> User["Check user domain template<br/>~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/<br/>Foundation/Domains/{type}/Templates/{Skill}.md"]
+    Start["Foundation Type<br/>extracted from /directive/foundation.md"] --> User["Check user domain template<br/>~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/<br/>Foundation/Domains/{type}/Templates/{Skill}.md"]
     User -->|Found| UseUser["Use user domain template"]
     User -->|Not found| Builtin["Check built-in domain template<br/>skills/Foundation/Domains/{type}/Templates/{Skill}.md"]
     Builtin -->|Found| UseBuiltin["Use built-in domain template"]
@@ -155,7 +155,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    Start["DetectDomain Workflow"] --> ScanUser["Scan user domains<br/>~/.buddy/.../Domains/*/"]
+    Start["DetectDomain Workflow"] --> ScanUser["Scan user domains<br/>~/.claude/LIFEOS/.../Domains/*/"]
     Start --> ScanBuiltin["Scan built-in domains<br/>skills/Foundation/Domains/*/"]
     ScanUser & ScanBuiltin --> Eval["For each domain: read detect.md"]
     Eval --> File["File pattern checks"]
@@ -177,7 +177,7 @@ flowchart TD
 
 ```mermaid
 graph LR
-    PAI["PAI Infrastructure<br/>(required)"] --> Foundation
+    LifeOS["LifeOS<br/>(required)"] --> Foundation
     Foundation -->|"creates /directive/foundation.md"| Spec
     Spec -->|"creates spec.md"| Plan
     Plan -->|"creates plan.md"| Tasks

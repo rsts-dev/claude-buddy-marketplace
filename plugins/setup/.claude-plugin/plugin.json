@@ -1,0 +1,10 @@
+{
+  "name": "setup",
+  "version": "2.1.0",
+  "description": "Multi-target setup plugin — thin wrappers that drive the OFFICIAL installers for LifeOS (the Life Operating System), MuleSoft API-design skills, Salesforce agent skills, and the Dr JSkill Spring Boot generator. Nothing is vendored; each target fetches the upstream install at run time with permission. USE WHEN setup lifeos, install lifeos, /setup:lifeos, set up mulesoft skills, install anypoint api skills, /setup:mulesoft, set up salesforce skills, install agentforce skills, sf skills, /setup:salesforce, set up spring boot, install dr jskill, java project generator, /setup:springboot.",
+  "author": { "name": "Claude Buddy Contributors", "url": "https://github.com/rsts-dev/claude-buddy-marketplace" },
+  "license": "MIT",
+  "homepage": "https://claude-buddy.dev",
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
+  "keywords": ["setup", "lifeos", "mulesoft", "salesforce", "springboot", "skills", "installer", "anypoint", "agentforce", "dr-jskill", "pai", "telos"]
+}

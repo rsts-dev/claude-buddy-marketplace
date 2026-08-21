@@ -24,6 +24,11 @@ cat requirements.txt 2>/dev/null
 cat pyproject.toml 2>/dev/null
 cat Gemfile 2>/dev/null
 cat composer.json 2>/dev/null
+cat deno.json 2>/dev/null
+```
+Also note the lockfile/package manager in use (informs exact install/run commands):
+```bash
+ls package-lock.json pnpm-lock.yaml yarn.lock bun.lockb uv.lock poetry.lock Cargo.lock go.sum 2>/dev/null
 ```
 Extract framework, dependencies, and build configuration.
 

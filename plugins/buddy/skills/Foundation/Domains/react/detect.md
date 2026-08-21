@@ -6,6 +6,7 @@ Files whose presence indicates a React project:
 - `src/**/*.tsx` with JSX content (confidence: high)
 - `src/App.jsx` or `src/App.tsx` (confidence: high)
 - `next.config.js` or `next.config.mjs` or `next.config.ts` (confidence: high)
+- `vite.config.js` or `vite.config.ts` with a React plugin (confidence: high)
 - `src/index.jsx` or `src/index.tsx` (confidence: medium)
 - `public/index.html` with React root div (confidence: medium)
 
@@ -16,6 +17,7 @@ Check dependency manifests for React entries:
 - `package.json` contains `"react-dom"` in dependencies (confidence: medium)
 - `package.json` contains `"@testing-library/react"` in devDependencies (confidence: medium)
 - `package.json` contains `"react-scripts"` in dependencies (confidence: medium)
+- `package.json` contains `"@vitejs/plugin-react"` in devDependencies (confidence: medium)
 
 ## Directory Structure
 Expected directory patterns:

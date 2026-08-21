@@ -8,6 +8,8 @@ Files whose presence indicates a MuleSoft project:
 - `src/test/munit/*.xml` (confidence: high)
 - `mule-artifact.json` (confidence: high)
 - `src/main/resources/application-types.xml` (confidence: medium)
+- `exchange.json` (Anypoint Exchange asset) (confidence: medium)
+- root `*.oas.yaml` / `openapi.yaml` / `openapi.json` with a MuleSoft/Anypoint context (confidence: medium)
 
 ## Manifest Checks
 Check dependency manifests for MuleSoft entries:

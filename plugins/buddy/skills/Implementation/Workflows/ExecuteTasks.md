@@ -8,7 +8,7 @@ Execute implementation tasks from a tasks document following TDD workflow with p
 FOUNDATION_PATH: /directive/foundation.md
 SPECS_DIR: specs/
 BUILTIN_DOMAINS_DIR: skills/Foundation/Domains/
-USER_DOMAINS_DIR: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/
+USER_DOMAINS_DIR: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/
 PERSONAS_DIR: skills/Foundation/Personas/
 ```
 
@@ -38,7 +38,7 @@ Read ALL documents in the spec folder:
 ### Step 3.5: Load Domain References
 
 Load domain-specific reference materials for implementation guidance. Check user domains first, then built-in:
-1. Try reading `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{foundation-type}/profile.md`
+1. Try reading `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{foundation-type}/profile.md`
 2. If not found, try `skills/Foundation/Domains/{foundation-type}/profile.md`
 3. Check the **Reference Materials** table for files tagged with `Load When: Implementation`
 4. Load matching reference files based on task context:

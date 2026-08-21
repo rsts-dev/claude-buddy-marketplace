@@ -21,3 +21,20 @@
   - Deployment → `anypoint-cli.md`
   - General patterns → `mule-guidelines.md`
 - **Docs phase**: Load `docs-general.md` for documentation structure
+
+## Official MuleSoft skills (install via `/setup:mulesoft`)
+
+For API-spec-first work, install the official MuleSoft API-design skills ([`mulesoft/mulesoft-dx`](https://github.com/mulesoft/mulesoft-dx/tree/master/skills)) with the `setup` plugin:
+
+```
+/setup:mulesoft
+```
+
+| Skill | Use when |
+|-------|----------|
+| `api-spec-validator` | Validate an OAS/RAML spec against agent-friendly best practices (Anypoint CLI) |
+| `api-doc-generator` / `api-schema-inferrer` | Generate API docs / infer schemas |
+| `jtbd-generator` / `jtbd-validator` | Jobs-To-Be-Done driven API design |
+| `validate-imperative-format` / `skill-quality-review` / `review-pr` | Spec/PR quality checks |
+
+Prefer these for spec authoring/validation; the six reference docs above remain the source for Mule 4 / DataWeave / connector implementation.

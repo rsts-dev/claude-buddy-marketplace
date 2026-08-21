@@ -9,7 +9,7 @@ FOUNDATION_PATH: /directive/foundation.md
 SPECS_DIR: specs/
 FEATURE_DESCRIPTION: User-provided feature description from $ARGUMENTS
 BUILTIN_DOMAINS_DIR: skills/Foundation/Domains/
-USER_DOMAINS_DIR: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/
+USER_DOMAINS_DIR: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/
 PERSONAS_DIR: skills/Foundation/Personas/
 ```
 
@@ -29,7 +29,7 @@ If missing: "Foundation is required. Run `/buddy:foundation` first." Exit.
 
 Resolve the template dynamically using the foundation type. Check user domains first (higher priority), then built-in:
 
-1. **Try user domain template**: Read `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{foundation-type}/Templates/Spec.md`
+1. **Try user domain template**: Read `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{foundation-type}/Templates/Spec.md`
 2. **Try built-in domain template**: Read `skills/Foundation/Domains/{foundation-type}/Templates/Spec.md`
 3. **Fallback**: If neither found, read `Templates/DefaultSpec.md`
 

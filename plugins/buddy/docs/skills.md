@@ -114,7 +114,7 @@ Interactive wizard for creating new domains:
 1. Gather domain name and description
 2. Collect technology stack details
 3. Generate profile.md, detect.md, analyze.md, 4 templates
-4. Store in `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/`
+4. Store in `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/`
 
 ### Sub-Systems
 

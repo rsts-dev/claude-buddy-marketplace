@@ -10,13 +10,13 @@ Professional git workflow automation with conventional commits, mode-aware inter
 ## Customization
 
 **Before executing, check for user customizations at:**
-`~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/SourceControl/`
+`~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/SourceControl/`
 
 If this directory exists, load and apply any PREFERENCES.md configurations (commit templates, branch naming conventions, protected branches). If not, proceed with defaults.
 
 ## Prerequisites
 
-PAI must be installed. Check `~/.buddy/.pai-version`. If missing, inform user: "PAI is required. Run `/pai:setup` to install."
+LifeOS must be installed. Check `~/.claude/LIFEOS/VERSION`. If missing, inform user: "LifeOS is required. Run `/setup:lifeos` to install."
 
 ## Workflow Routing
 

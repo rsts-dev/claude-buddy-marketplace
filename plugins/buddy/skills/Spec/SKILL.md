@@ -10,13 +10,13 @@ Transform feature descriptions into formal specifications using foundation-aware
 ## Customization
 
 **Before executing, check for user customizations at:**
-`~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/Spec/`
+`~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Spec/`
 
 If this directory exists, load and apply any PREFERENCES.md configurations. If not, proceed with defaults.
 
 ## Prerequisites
 
-1. PAI must be installed. Check `~/.buddy/.pai-version`.
+1. LifeOS must be installed. Check `~/.claude/LIFEOS/VERSION`.
 2. Foundation must exist at `/directive/foundation.md`. If missing, inform user: "Run `/buddy:foundation` first."
 
 ## Workflow Routing

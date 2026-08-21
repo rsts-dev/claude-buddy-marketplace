@@ -13,7 +13,7 @@ Integration and API development using MuleSoft's Anypoint Platform. Covers Mule 
 - **Build**: Maven 3.6+
 
 ## Keywords
-MuleSoft, Mule, DataWeave, Anypoint, connector, RAML, API-led, CloudHub, flow, transformation, dwl, integration, System API, Process API, Experience API, MUnit
+MuleSoft, Mule, DataWeave, Anypoint, connector, RAML, OAS, OpenAPI, API-led, CloudHub, flow, transformation, dwl, integration, System API, Process API, Experience API, MUnit, API spec, JTBD, spec-first
 
 ## Reference Materials
 | File | Description | Load When |
@@ -26,8 +26,13 @@ MuleSoft, Mule, DataWeave, Anypoint, connector, RAML, API-led, CloudHub, flow, t
 | Reference/docs-general.md | RAML, MTF tests, API-led design documentation | Docs |
 
 ## Best Practices Summary
+- Design API-spec-first (OAS/RAML) before implementation; validate specs for agent-friendliness
 - Follow API-led connectivity: System, Process, and Experience API layers
 - Use DataWeave for all data transformations; leverage built-in functions and type coercion
 - Implement proper error handling with on-error-continue and on-error-propagate
 - Use streaming for large payloads; configure connection pooling appropriately
 - Test with MUnit; use secure property placeholders for credentials
+
+## Official Skills
+
+The official MuleSoft API-design skills ([`mulesoft/mulesoft-dx`](https://github.com/mulesoft/mulesoft-dx/tree/master/skills) — `api-spec-validator`, `api-doc-generator`, `api-schema-inferrer`, `jtbd-generator`, `jtbd-validator`, and review helpers) support a spec-first, Jobs-To-Be-Done API workflow. Install them via **`/setup:mulesoft`** (from the `setup` plugin). This domain provides the foundation/templates; the official skills provide deep API-spec tooling (Anypoint CLI under the hood).

@@ -10,13 +10,13 @@ Generate comprehensive technical documentation by analyzing the codebase with fo
 ## Customization
 
 **Before executing, check for user customizations at:**
-`~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/Docs/`
+`~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Docs/`
 
 If this directory exists, load and apply any PREFERENCES.md configurations. If not, proceed with defaults.
 
 ## Prerequisites
 
-1. PAI must be installed. Check `~/.buddy/.pai-version`.
+1. LifeOS must be installed. Check `~/.claude/LIFEOS/VERSION`.
 2. Foundation must exist at `/directive/foundation.md`.
 
 ## Workflow Routing

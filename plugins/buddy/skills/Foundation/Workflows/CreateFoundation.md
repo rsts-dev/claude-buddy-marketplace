@@ -7,7 +7,7 @@ Create a project foundation from scratch by analyzing the codebase, detecting th
 ```
 FOUNDATION_PATH: /directive/foundation.md
 BUILTIN_DOMAINS_DIR: skills/Foundation/Domains/
-USER_DOMAINS_DIR: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/
+USER_DOMAINS_DIR: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/
 ```
 
 ## Workflow

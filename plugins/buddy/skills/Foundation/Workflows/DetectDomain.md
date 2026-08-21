@@ -6,7 +6,7 @@ Scan all available domains and determine the best match for the current project 
 
 ```
 BUILTIN_DOMAINS_DIR: skills/Foundation/Domains/
-USER_DOMAINS_DIR: ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/
+USER_DOMAINS_DIR: ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/
 ```
 
 ## Workflow
@@ -20,7 +20,7 @@ Scan **both** domain directories for subdirectories. Each subdirectory (except `
 ls -d skills/Foundation/Domains/*/ 2>/dev/null | grep -v '_domain-template'
 
 # User-created domains
-ls -d ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/*/ 2>/dev/null
+ls -d ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/*/ 2>/dev/null
 ```
 
 Build a unified list of candidate domains from both locations. If a domain name exists in both locations, the **user version takes precedence** (overrides the built-in).
@@ -95,6 +95,6 @@ Domain Detection Results:
 
 **Locations:**
 - Built-in: `skills/Foundation/Domains/{domain-name}/`
-- User-created: `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/`
+- User-created: `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/`
 
 No changes to this workflow or any other files are needed. The new domain is automatically discovered and evaluated.

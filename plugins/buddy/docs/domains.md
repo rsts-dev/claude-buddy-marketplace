@@ -9,7 +9,7 @@ The domain system provides technology-specific knowledge, templates, detection r
 ```mermaid
 graph TB
     subgraph Sources["Domain Sources (priority order)"]
-        User["User Domains (higher priority)<br/>~/.buddy/PAI-USER/<br/>SKILLCUSTOMIZATIONS/<br/>Foundation/Domains/"]
+        User["User Domains (higher priority)<br/>~/.claude/LIFEOS/USER/<br/>CUSTOMIZATIONS/SKILLS/<br/>Foundation/Domains/"]
         Builtin["Built-in Domains<br/>skills/Foundation/Domains/"]
     end
 
@@ -56,11 +56,21 @@ graph TB
 
 ### mulesoft (priority: 70)
 - **Type key**: `mulesoft`
-- **Detection**: `mule-artifact.json` (90 pts), `*.dwl` files (90 pts), `pom.xml` with `mule-maven-plugin` (90 pts)
-- **Use case**: MuleSoft integration and API development
+- **Detection**: `mule-artifact.json` (90 pts), `*.dwl` files (90 pts), `pom.xml` with `mule-maven-plugin` (90 pts), OAS/RAML spec + `exchange.json` (30 pts)
+- **Use case**: MuleSoft integration and API development (Mule 4 + spec-first API design)
 - **Reference materials**: `dataweave.md` (55KB), `mule-sdk.md` (54KB), `mule-connector.md` (43KB), `mule-guidelines.md` (62KB), `anypoint-cli.md` (66KB), `docs-general.md` (54KB)
+- **Official skills**: the MuleSoft API-design skills (`mulesoft/mulesoft-dx`) install via `/setup:mulesoft`
 - **Dependencies**: Mule 4.x, Java 8+, Maven 3.6+
 - **Location**: `skills/Foundation/Domains/mulesoft/`
+
+### salesforce (priority: 70)
+- **Type key**: `salesforce`
+- **Detection**: `sfdx-project.json` (90 pts), `force-app/main/default/` (90 pts), `*.cls`/`*.trigger` (90 pts), `lwc/**` (90 pts)
+- **Use case**: Salesforce DX development (Apex, LWC, Flows, Agentforce)
+- **Reference materials**: `README.md` (index) — deep tooling deferred to the official skills
+- **Official skills**: the Salesforce agent skills (`forcedotcom/sf-skills`) install via `/setup:salesforce`
+- **Dependencies**: Salesforce CLI (`sf`), Node 18+
+- **Location**: `skills/Foundation/Domains/salesforce/`
 
 ## Domain File Structure
 
@@ -146,6 +156,13 @@ Total: 180 -> react domain selected
 Total: 90 -> jhipster domain selected
 ```
 
+**Salesforce project** (has `sfdx-project.json` + `force-app/`):
+```
+sfdx-project.json exists    -> HIGH (90)
+force-app/main/default/ dir -> HIGH (90)
+Total: 180 -> salesforce domain selected
+```
+
 **Generic Python project** (has `requirements.txt`):
 ```
 No domain matches threshold
@@ -156,7 +173,7 @@ Total: 0 -> default domain selected
 
 ```mermaid
 flowchart TD
-    Start["Foundation Type extracted"] --> User["User domain template?<br/>~/.buddy/.../Domains/{type}/Templates/{Skill}.md"]
+    Start["Foundation Type extracted"] --> User["User domain template?<br/>~/.claude/LIFEOS/.../Domains/{type}/Templates/{Skill}.md"]
     User -->|Found| UseUser["Use user template"]
     User -->|Not found| Builtin["Built-in domain template?<br/>skills/Foundation/Domains/{type}/Templates/{Skill}.md"]
     Builtin -->|Found| UseBuiltin["Use built-in template"]
@@ -176,12 +193,12 @@ The wizard guides you through:
 2. Technology stack details (runtime, framework, config files)
 3. Detection rules (which files/patterns identify this tech)
 4. Generates all required files with intelligent defaults
-5. Stores in `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{name}/`
+5. Stores in `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{name}/`
 
 ### Manual Creation
 
 1. Copy `skills/Foundation/Domains/_domain-template/` as a starting point
 2. Customize all files for your technology
-3. Place in either user (`~/.buddy/...`) or built-in (`skills/Foundation/Domains/`) location
+3. Place in either user (`~/.claude/LIFEOS/...`) or built-in (`skills/Foundation/Domains/`) location
 
 The `_domain-template/` directory at `skills/Foundation/Domains/_domain-template/` contains skeleton files with placeholders and instructions for each required file.

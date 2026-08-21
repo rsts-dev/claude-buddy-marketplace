@@ -10,13 +10,13 @@ Maintain the authoritative project foundation document. Automatically detects th
 ## Customization
 
 **Before executing, check for user customizations at:**
-`~/.claude/PAI/USER/SKILLCUSTOMIZATIONS/Foundation/`
+`~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/`
 
 If this directory exists, load and apply any PREFERENCES.md configurations. If not, proceed with defaults.
 
 ## Prerequisites
 
-PAI must be installed. Check `~/.buddy/.pai-version`. If missing, inform user: "PAI is required. Run `/pai:setup` to install."
+LifeOS must be installed. Check `~/.claude/LIFEOS/VERSION`. If missing, inform user: "LifeOS is required. Run `/setup:lifeos` to install."
 
 ## Workflow Routing
 
@@ -75,11 +75,11 @@ Domains/{domain-name}/
 ```
 The CreateDomain workflow guides you through creating all required files interactively, with intelligent defaults and technology-aware generation. Domains created this way are stored in your user customization directory:
 ```
-~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{domain-name}/
+~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{domain-name}/
 ```
 
 **Manual creation:**
-1. Create a directory under `Domains/` or `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/`
+1. Create a directory under `Domains/` or `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/`
 2. Add the required files: `profile.md`, `detect.md`, `analyze.md`
 3. Add templates in `Templates/`: `Spec.md`, `Plan.md`, `Tasks.md`, `Docs.md`
 4. Optionally add reference materials in `Reference/`
@@ -90,7 +90,7 @@ No changes to Foundation, DetectDomain, or any downstream skill workflows are ne
 ### Domain Search Order
 
 DetectDomain scans domains from two locations:
-1. **User domains**: `~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/` (takes precedence)
+1. **User domains**: `~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/` (takes precedence)
 2. **Built-in domains**: `skills/Foundation/Domains/`
 
 User domains can override built-in domains by using the same `type_key`.
@@ -135,7 +135,7 @@ User: "/buddy:foundation create domain"
 -> Gathers technology stack details (runtime, framework, config files, etc.)
 -> Generates profile.md, detect.md, analyze.md with intelligent defaults
 -> Generates 4 customized templates (Spec, Plan, Tasks, Docs)
--> Writes to ~/.buddy/PAI-USER/SKILLCUSTOMIZATIONS/Foundation/Domains/{name}/
+-> Writes to ~/.claude/LIFEOS/USER/CUSTOMIZATIONS/SKILLS/Foundation/Domains/{name}/
 -> Domain immediately available for detection
 ```
 

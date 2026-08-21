@@ -1,0 +1,10 @@
+{
+  "name": "sdlc",
+  "version": "1.1.0",
+  "description": "Tactical AI-native SDLC layered on Claude Buddy — Cole Medin's R-PIV loop (Research, Plan, Implement, Validate) for brownfield projects, with epic/story/task decomposition in Jira & Confluence and GitHub as source control via MCP. A complement to buddy: reuses its Foundation, adds a checked-in AI layer (lean CLAUDE.md + context modules) and external-tool integration. USE WHEN sdlc, ai-native development, r-piv, rpiv, research plan implement validate, brownfield, init ai layer, generate CLAUDE.md, prime context, decompose epic, plan feature, execute plan, validate changes, ai code review, root cause analysis, jira, confluence, github pr. Requires the buddy plugin (which requires LifeOS).",
+  "author": { "name": "Claude Buddy Contributors", "url": "https://github.com/rsts-dev/claude-buddy-marketplace" },
+  "license": "MIT",
+  "homepage": "https://claude-buddy.dev",
+  "repository": "https://github.com/rsts-dev/claude-buddy-marketplace",
+  "keywords": ["sdlc", "ai-native", "r-piv", "brownfield", "jira", "confluence", "github", "mcp", "code-review", "tactical", "buddy", "lifeos"]
+}
